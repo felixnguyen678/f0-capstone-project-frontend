@@ -1,16 +1,16 @@
 const routes = {
   home: {
-    value: "/",
+    value: '/'
   },
   myProfile: {
-    value: "/my-profile",
+    value: '/my-profile'
   },
   users: {
-    value: "/users",
+    value: '/users',
     details: {
-      value: (id: string) => `/users/${id}`,
-    },
-  },
-};
+      value: (id: string) => `/users/${id}`
+    }
+  }
+}
 
-export default routes;
+export default routes

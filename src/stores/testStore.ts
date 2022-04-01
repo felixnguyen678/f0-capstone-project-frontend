@@ -1,17 +1,17 @@
-import { observable, makeObservable } from "mobx";
-import { RootStore } from "./index";
+import { observable, makeObservable } from 'mobx'
+import { RootStore } from './index'
 
 class TestStore {
-  rootStore: RootStore;
+  rootStore: RootStore
   constructor(rootStore: RootStore) {
     makeObservable(this, {
-      status: observable,
-    });
+      status: observable
+    })
 
-    this.rootStore = rootStore;
+    this.rootStore = rootStore
   }
 
-  status: boolean = true;
+  status: boolean = true
 }
 
-export default TestStore;
+export default TestStore

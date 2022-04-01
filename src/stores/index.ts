@@ -1,11 +1,11 @@
-import TestStore from "./testStore";
+import TestStore from './testStore'
 
 export class RootStore {
-  testStore: TestStore;
+  testStore: TestStore
 
   constructor() {
-    this.testStore = new TestStore(this);
+    this.testStore = new TestStore(this)
   }
 }
 
-export const rootStore = new RootStore();
+export const rootStore = new RootStore()
