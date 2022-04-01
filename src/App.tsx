@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import ProfilePage from './pages/ProfilePage'
 import HomePage from './pages/HomePage'
 import routes from './routes'
+import './scss/global.scss'
 
 function App(): JSX.Element {
   return (
