@@ -22,7 +22,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test:dev": "npx jest --watch",
+    "test:coverage": "npx jest --coverage",
     "eject": "react-scripts eject",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
@@ -47,14 +48,15 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.16.7",
     "@typescript-eslint/eslint-plugin": "^5.17.0",
     "@typescript-eslint/parser": "^5.17.0",
     "eslint": "^8.12.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-import": "^2.23.3",
     "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.0.8",
     "eslint-plugin-unused-imports": "^1.1.1",
     "prettier": "^2.6.1"
