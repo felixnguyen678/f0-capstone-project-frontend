@@ -1,5 +1,4 @@
 import { Button } from 'reactstrap'
-import Title from '../components/pages/Home/components/Title'
 import { useStores } from '../hooks/useStores'
 
 const HomePage = () => {
@@ -8,7 +7,7 @@ const HomePage = () => {
 
   return (
     <div>
-      Home Page <Title title="Hello" />
+      <h3>F0 Capstone Project Hello</h3>
       <Button color="primary">Button</Button>
     </div>
   )
