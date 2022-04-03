@@ -1,0 +1,9 @@
+@import '../../../../../scss/variables.scss';
+
+.title {
+  color: $red;
+
+  .child {
+    color: $blue;
+  }
+}
