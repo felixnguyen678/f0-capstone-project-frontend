@@ -1,12 +1,11 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-
-import ProfilePage from './pages/ProfilePage'
-import HomePage from './pages/HomePage'
-import routes from './routes'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './scss/global.scss'
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
 import { BE_URL } from './constants/config'
+import HomePage from './pages/HomePage'
+import ProfilePage from './pages/ProfilePage'
+import routes from './routes'
+import './scss/global.scss'
 
 function App(): JSX.Element {
   console.log({ env: BE_URL })
