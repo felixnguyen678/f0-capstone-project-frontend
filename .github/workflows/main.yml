@@ -16,6 +16,7 @@ on:
 env:
   IMAGE_NAME: 'fzeroteam/f0-capstone-project-frontend'
   CONTAINER_NAME: 'f0-capstone-project-frontend'
+  PORT: '3000'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -70,4 +71,4 @@ jobs:
           envs: CONTAINER_NAME, IMAGE_NAME
           script: |
             docker stop $(echo $CONTAINER_NAME) && docker rm $(echo $CONTAINER_NAME)
-            docker run --name $(echo $CONTAINER_NAME) -p 9000:9000 -d $(echo $IMAGE_NAME)
+            docker run --name $(echo $CONTAINER_NAME) -p ${{ env.PORT }}:${{ env.PORT }} -d $(echo $IMAGE_NAME)
