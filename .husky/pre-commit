@@ -3,4 +3,5 @@
 
 
 yarn tsc
+yarn test:coverage
 yarn lint-staged

@@ -2,4 +2,8 @@
 
 .title {
   color: $red;
+
+  .child {
+    color: $blue;
+  }
 }
