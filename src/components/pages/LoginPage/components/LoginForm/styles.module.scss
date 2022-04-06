@@ -1,0 +1,14 @@
+.signInForm {
+  border: 2px solid #d3d3d3;
+  border-radius: 0.5em;
+
+  padding: 1em;
+  text-align: left;
+  width: 600px;
+  .formGroup {
+    padding: 1em;
+    label {
+      font-weight: 600;
+    }
+  }
+}
