@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { BE_URL } from './constants/config'
@@ -6,6 +5,8 @@ import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 import ProfilePage from './pages/ProfilePage'
 import routes from './routes'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'remixicon/fonts/remixicon.css'
 import './scss/global.scss'
 
 function App(): JSX.Element {
