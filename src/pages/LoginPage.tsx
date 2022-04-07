@@ -1,11 +1,14 @@
 import LoginForm from '../components/pages/LoginPage/components/LoginForm'
 import styles from '../components/pages/LoginPage/styles.module.scss'
+import GuestLayout from '../layouts/GuestLayout'
 
 const LoginPage = () => {
   return (
-    <div className={styles.container}>
-      <LoginForm />
-    </div>
+    <GuestLayout>
+      <div className={styles.container}>
+        <LoginForm />
+      </div>
+    </GuestLayout>
   )
 }
 

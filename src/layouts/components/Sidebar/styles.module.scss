@@ -1,24 +1,23 @@
 @import '../../../scss/variables.scss';
 
-
 .sidebar {
   position: fixed;
   top: 100px;
   padding-left: 20px;
   padding-right: 20px;
   height: calc(100vh - 100px);
-  background-color: $lightColor;
+  background-color: $light-white;
   font-size: 20px;
-  border-right: $lightColor solid 1px;
+  border-right: $light-white solid 1px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   width: 300px;
 
   .item {
     padding: 10px 0;
     cursor: pointer;
-    
+
     &:hover {
-      background-color: $secondaryColor;
+      background-color: $secondary;
     }
   }
 }
