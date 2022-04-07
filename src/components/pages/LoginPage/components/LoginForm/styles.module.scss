@@ -1,0 +1,23 @@
+@import '../../../../../scss/variables.scss';
+
+.signInForm {
+  border: 2px solid $gray;
+  border-radius: 0.5em;
+
+  padding: 1em;
+  text-align: left;
+  width: 600px;
+  .title {
+    margin-left: 14px;
+  }
+  .formContainer {
+    padding: 1em;
+    label {
+      font-weight: 600;
+    }
+    .button {
+      background-color: $blue;
+      margin-left: 467px;
+    }
+  }
+}

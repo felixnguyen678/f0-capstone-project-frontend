@@ -1,4 +1,4 @@
-import { Button } from 'reactstrap'
+import withAuthen from '../hocs/withAuthen'
 import { useStores } from '../hooks/useStores'
 
 const HomePage = () => {
@@ -6,11 +6,10 @@ const HomePage = () => {
   console.log({ testStore: testStore.status })
 
   return (
-    <div>
-      <h3>F0 Capstone Project Hello</h3>
-      <Button color="primary">Button</Button>
-    </div>
+    <>
+      <h1 className="p-5"> Home page</h1>
+    </>
   )
 }
 
-export default HomePage
+export default withAuthen(HomePage)

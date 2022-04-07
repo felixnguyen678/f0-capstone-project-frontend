@@ -5,11 +5,29 @@ const routes = {
   myProfile: {
     value: '/my-profile'
   },
+  monitoring: {
+    value: '/monitorings'
+  },
+  billing: {
+    value: '/billing'
+  },
+  resourceAlerts: {
+    value: '/resource-alerts'
+  },
+  virtualPrivateServers: {
+    value: '/virtual-private-servers'
+  },
+  containers: {
+    value: '/containers'
+  },
   users: {
     value: '/users',
     details: {
       value: (id: string) => `/users/${id}`
     }
+  },
+  login: {
+    value: '/login'
   }
 }
 

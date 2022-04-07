@@ -1,5 +1,11 @@
+import withAuthen from '../hocs/withAuthen'
+
 const ProfilePage = () => {
-  return <div>Profile Page</div>
+  return (
+    <>
+      <h1 className="p-5"> Profile page</h1>
+    </>
+  )
 }
 
-export default ProfilePage
+export default withAuthen(ProfilePage)

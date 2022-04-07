@@ -19,6 +19,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
     "reactstrap": "^9.0.1",
+    "remixicon": "^2.5.0",
     "sass": "^1.49.10",
     "typescript": "^4.6.3",
     "web-vitals": "^2.1.4"
@@ -31,7 +32,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "format": "prettier --write . --config ./.prettierrc",
     "prepare": "husky install"
   },
   "eslintConfig": {
