@@ -1,30 +1,22 @@
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
+import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 import styles from './styles.module.scss'
 
 const LoginForm = () => {
   return (
     <div className={styles.signInForm}>
-        <h2 className={styles.title}>Sign In</h2>
-        <Form className={styles.formGroup}>
-          <FormGroup>
-            <Label htmlFor="exampleEmail" >Username</Label>
-            <Input
-              type="email"
-              name="email"
-              id="exampleEmail"
-              placeholder="example@example.com"
-            />
-          </FormGroup>
-          <FormGroup className={styles.form}>
-            <Label htmlFor="examplePassword" >Password</Label>
-            <Input
-              type="password"
-              name="password"
-              id="examplePassword"
-              placeholder="********"
-            />
-          </FormGroup>
-        <Button className={styles.button} type="submit">Login</Button>
+      <h2 className={styles.title}>Sign In</h2>
+      <Form className={styles.formContainer}>
+        <FormGroup>
+          <Label htmlFor="email">Username</Label>
+          <Input type="email" name="email" id="email" placeholder="phanle@gmail.com" />
+        </FormGroup>
+        <FormGroup className={styles.form}>
+          <Label htmlFor="password">Password</Label>
+          <Input type="password" name="password" id="password" placeholder="********" />
+        </FormGroup>
+        <Button className={styles.button} type="submit">
+          Login
+        </Button>
       </Form>
     </div>
   )

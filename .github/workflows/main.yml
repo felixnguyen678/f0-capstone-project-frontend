@@ -2,9 +2,9 @@ name: Deploy Frontend CI/CD
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 env:
   IMAGE_NAME: 'fzeroteam/f0-capstone-project-frontend'
   CONTAINER_NAME: 'frontend'
@@ -15,23 +15,23 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-        
+
       - name: create .env file
         run: |
           echo $ENV >> .env
           cat .env
         env:
-          ENV : ${{secrets.ENV}}
+          ENV: ${{secrets.ENV}}
 
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-        
+
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
