@@ -24,7 +24,7 @@ const LoginForm = () => {
               placeholder="********"
             />
           </FormGroup>
-        <Button type="submit">Submit</Button>
+        <Button className={styles.button} type="submit">Login</Button>
       </Form>
     </div>
   )
