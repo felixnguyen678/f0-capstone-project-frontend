@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import { CloudServices } from './data'
-import { ECloudService } from './constants'
-import DOAuthenticationForm from '../DigitalOceanAuthenticationForm'
-import AWSAuthenticationForm from '../AWSAuthenticationForm'
-import GCAuthenticationForm from '../GoogleCloudAuthenticationForm'
 import { CardGroup, Card, CardImg, CardBody, CardTitle } from 'reactstrap'
+import AWSAuthenticationForm from '../AWSAuthenticationForm'
+import DOAuthenticationForm from '../DigitalOceanAuthenticationForm'
+import GCAuthenticationForm from '../GoogleCloudAuthenticationForm'
+import { ECloudService } from './constants'
+import { CloudServices } from './data'
 import styles from './styles.module.scss'
 
 function CloudServiceOptionPage() {
