@@ -10,12 +10,12 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'remixicon/fonts/remixicon.css'
 import './scss/global.scss'
 import LoginPage from './pages/LoginPage'
+import MonitoringPage from './pages/monitoring'
 import ProfilePage from './pages/ProfilePage'
 import ResourceAlertsPage from './pages/resource-alerts'
 import UsersPage from './pages/users'
 import VirtualPrivateServersPage from './pages/virtual-private-servers'
 import routes from './routes'
-import MonitoringPage from './pages/monitoring'
 
 function App(): JSX.Element {
   console.log({ env: BE_URL })

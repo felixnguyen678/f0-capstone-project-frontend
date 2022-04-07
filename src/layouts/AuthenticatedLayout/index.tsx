@@ -25,7 +25,7 @@ const AuthenticatedLayout = ({ ...props }) => {
           <div className="d-flex flex-column justify-content-between h-100">
             <div>
               {MENU_ITEM_DATA.map((item, index) => (
-                <MenuItem item={item} key={index}/>
+                <MenuItem item={item} key={index} />
               ))}
             </div>
             <div>

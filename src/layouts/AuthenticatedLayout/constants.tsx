@@ -1,5 +1,5 @@
-import routes from "../../routes";
-import { IMenuItem } from "../components/types";
+import routes from '../../routes'
+import { IMenuItem } from '../components/types'
 
 const MENU_ITEM_DATA: Array<IMenuItem> = [
   {
@@ -36,7 +36,7 @@ const MENU_ITEM_DATA: Array<IMenuItem> = [
     title: 'Users',
     href: routes.users.value,
     icon: <i className="ri-group-line me"></i>
-  },
+  }
 ]
 
 export default MENU_ITEM_DATA
