@@ -1,0 +1,11 @@
+@import '../../../scss/variables.scss';
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  height: 100px;
+  background-color: $primary;
+  color: $white;
+}

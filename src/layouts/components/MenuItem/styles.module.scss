@@ -1,0 +1,16 @@
+@import '../../../scss/variables.scss';
+
+.menuItem {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  .title {
+    padding-top: 10px;
+  }
+
+  .icon {
+    font-size: 2rem;
+    margin-right: 10px;
+  }
+}
