@@ -3,6 +3,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { BE_URL } from './constants/config'
 import HomePage from './pages/HomePage'
+import LoginPage from './pages/LoginPage'
 import ProfilePage from './pages/ProfilePage'
 import routes from './routes'
 import './scss/global.scss'
@@ -16,6 +17,7 @@ function App(): JSX.Element {
     <Routes>
       <Route path={routes.home.value} element={<HomePage />} />
       <Route path={routes.myProfile.value} element={<ProfilePage />} />
+      <Route path={routes.login.value} element={<LoginPage />} />
     </Routes>
   )
 }

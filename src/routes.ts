@@ -5,6 +5,9 @@ const routes = {
   myProfile: {
     value: '/my-profile'
   },
+  login: {
+    value: '/login'
+  },
   users: {
     value: '/users',
     details: {

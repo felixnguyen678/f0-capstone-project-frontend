@@ -1,4 +1,3 @@
-import { Button } from 'reactstrap'
 import { useStores } from '../hooks/useStores'
 
 const HomePage = () => {
@@ -8,7 +7,6 @@ const HomePage = () => {
   return (
     <div>
       <h3>F0 Capstone Project Hello</h3>
-      <Button color="primary">Button</Button>
     </div>
   )
 }
