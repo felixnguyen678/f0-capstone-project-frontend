@@ -2,6 +2,8 @@
 
 
 .sidebar {
+  position: fixed;
+  top: $headerHeight;
   padding-left: 20px;
   padding-right: 20px;
   height: calc(100vh - $headerHeight);
