@@ -15,6 +15,7 @@ import ResourceAlertsPage from './pages/resource-alerts'
 import UsersPage from './pages/users'
 import VirtualPrivateServersPage from './pages/virtual-private-servers'
 import routes from './routes'
+import MonitoringPage from './pages/monitoring'
 
 function App(): JSX.Element {
   console.log({ env: BE_URL })
@@ -31,6 +32,7 @@ function App(): JSX.Element {
       <Route path={routes.virtualPrivateServers.value} element={<VirtualPrivateServersPage />} />
       <Route path={routes.containers.value} element={<ContainersPage />} />
       <Route path={routes.users.value} element={<UsersPage />} />
+      <Route path={routes.monitoring.value} element={<MonitoringPage />} />
     </Routes>
   )
 }
