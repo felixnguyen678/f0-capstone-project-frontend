@@ -1,0 +1,25 @@
+@import '../../../../scss/variables.scss';
+
+.input {
+  border: 2px solid $border-color;
+  border-radius: 0.5em;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+  text-align: left;
+  width: 600px;
+  height: 200px;
+  position: relative;
+  .inputForm {
+    padding: 1em;
+    .label {
+      font-weight: 600;
+    }
+  }
+  .button {
+    background-color: $blue;
+    margin-left: 473px;
+    margin-top: -25px;
+  }
+}
