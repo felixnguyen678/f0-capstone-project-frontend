@@ -1,4 +1,4 @@
-@import '../../../scss/variables.scss';
+@import '../../../../../scss/variables.scss';
 
 .signInForm {
   border: 2px solid #d3d3d3;
@@ -7,6 +7,9 @@
   padding: 1em;
   text-align: left;
   width: 600px;
+  .title {
+    margin-left: 14px
+  }
   .formGroup {
     padding: 1em;
     label {
