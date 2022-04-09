@@ -1,5 +1,5 @@
 import axios, { AxiosRequestHeaders } from 'axios'
-import { ELocalStorageKeys } from '../constants/enums'
+import { ELocalStorageKeys } from '../constants/enums/localStorage'
 import { BE_URL } from './../constants/config'
 
 const api = axios.create({

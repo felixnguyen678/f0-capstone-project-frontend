@@ -1,8 +1,8 @@
 import { makeObservable, observable } from 'mobx'
 import { getMyProfile, login } from '../API/authenticate'
-import { ELocalStorageKeys } from '../constants/enums'
+import { ELocalStorageKeys } from '../constants/enums/localStorage'
 import { ILoginRequest } from '../types/authenticate'
-import { IUser } from './../types/user/index'
+import { IUser } from './../types/user'
 import { RootStore } from './index'
 
 export default class AuthStore {
@@ -18,7 +18,7 @@ export default class AuthStore {
     this.rootStore = rootStore
   }
 
-  async getMyUser(): Promise<IUser> {
+  async getMyUser(): Promise<IUser | null> {
     const currentUser = await getMyProfile()
     this.user = currentUser
     return this.user
