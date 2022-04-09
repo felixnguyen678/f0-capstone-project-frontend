@@ -1,13 +1,7 @@
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import {
-  Button,
-  Form,
-  FormGroup,
-  // Input,
-  Label
-} from 'reactstrap'
+import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
 import { useStores } from '../../../../../hooks/useStores'
 import routes from '../../../../../routes'
 import { ILoginRequest } from '../../../../../types/authenticate'
@@ -16,8 +10,9 @@ import styles from './styles.module.scss'
 const LoginForm = () => {
   const { authStore } = useStores()
   const navigate = useNavigate()
-  const { register, handleSubmit } = useForm<ILoginRequest>()
-  const login = async (data: ILoginRequest) => {
+  const { register, handleSubmit, control } = useForm<ILoginRequest>()
+
+  async function login(data: ILoginRequest) {
     try {
       await authStore.login(data)
       navigate(routes.home.value)
@@ -31,11 +26,41 @@ const LoginForm = () => {
       <Form className={styles.formContainer} onSubmit={handleSubmit(login)}>
         <FormGroup>
           <Label htmlFor="email">Email</Label>
-          <input type="email" className="form-control" id="email" {...register('email')} />
+          <Controller
+            control={control}
+            name="email"
+            render={({ field: { onChange, onBlur, value, ref, name } }) => (
+              <Input
+                type="email"
+                id="email"
+                name={name}
+                placeholder="example@mail.com"
+                innerRef={ref}
+                value={value}
+                onChange={onChange}
+                onBlur={onBlur}
+              />
+            )}
+          />
         </FormGroup>
         <FormGroup className={styles.form}>
           <Label htmlFor="password">Password</Label>
-          <input type="password" className="form-control" id="password" {...register('password')} />
+          <Controller
+            control={control}
+            name="password"
+            render={({ field: { onChange, onBlur, value, ref, name } }) => (
+              <Input
+                type="password"
+                id="password"
+                name={name}
+                placeholder="********"
+                innerRef={ref}
+                value={value}
+                onChange={onChange}
+                onBlur={onBlur}
+              />
+            )}
+          />
         </FormGroup>
         <Button className={styles.button} type="submit">
           Login
