@@ -1,6 +1,10 @@
-import axios from 'axios'
+import axios, { AxiosRequestHeaders } from 'axios'
+import { ELocalStorageKeys } from '../constants/enums'
+import { BE_URL } from './../constants/config'
 
-const api = axios.create()
+const api = axios.create({
+  baseURL: BE_URL
+})
 
 api.interceptors.request.use(
   function (config) {
@@ -26,5 +30,18 @@ api.interceptors.response.use(
     return Promise.reject(error)
   }
 )
+
+export function auth(): AxiosRequestHeaders {
+  if (typeof window === 'undefined') {
+    return {}
+  }
+
+  const headers = { authorization: '' }
+  const tokenKey = ELocalStorageKeys.ACCESS_TOKEN
+  const accessToken = sessionStorage.getItem(tokenKey) || ''
+  headers.authorization = `Bearer ${accessToken}`
+
+  return headers
+}
 
 export default api
