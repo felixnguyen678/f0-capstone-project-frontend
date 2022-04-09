@@ -31,6 +31,9 @@ const routes = {
   },
   login: {
     value: '/login'
+  },
+  cloudLogin: {
+    value: '/cloud-login'
   }
 }
 

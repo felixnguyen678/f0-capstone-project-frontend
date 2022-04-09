@@ -1,5 +1,4 @@
 import { makeObservable, observable } from 'mobx'
-import { toast } from 'react-toastify'
 import { getMyProfile, login } from '../API/authenticate'
 import { ELocalStorageKeys } from '../constants/enums'
 import { ILoginRequest } from '../types/authenticate'
@@ -19,9 +18,10 @@ export default class AuthStore {
     this.rootStore = rootStore
   }
 
-  async getMyUser(): Promise<void> {
+  async getMyUser(): Promise<IUser> {
     const currentUser = await getMyProfile()
     this.user = currentUser
+    return this.user
   }
 
   setAccessToken(accessToken: string): void {
@@ -46,12 +46,10 @@ export default class AuthStore {
         const currentUser = await getMyProfile()
         this.user = currentUser
       } else {
-        toast.error('Something may wrong, please login again !')
-        window.location.replace('/login')
+        throw Error('Cannot get access token, please try again')
       }
     } catch (error) {
-      toast.error('Something may wrong, please try again !')
-      window.location.replace('/login')
+      throw Error('Cannot get access token, please try again')
     }
   }
 
@@ -61,8 +59,7 @@ export default class AuthStore {
       this.setAccessToken(token)
       await this.getMyUser()
     } catch (error: any) {
-      //*INFO: Catch clause variable type annotation must be 'any' or 'unknown' if specified
-      toast.error('Something may wrong, please try again !')
+      throw Error('Invalid username or password, please try again')
     }
   }
 

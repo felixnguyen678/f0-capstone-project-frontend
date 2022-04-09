@@ -32,10 +32,6 @@ api.interceptors.response.use(
 )
 
 export function auth(): AxiosRequestHeaders {
-  if (typeof window === 'undefined') {
-    return {}
-  }
-
   const headers = { authorization: '' }
   const tokenKey = ELocalStorageKeys.ACCESS_TOKEN
   const accessToken = sessionStorage.getItem(tokenKey) || ''
