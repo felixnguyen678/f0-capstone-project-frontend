@@ -1,6 +1,6 @@
-import api, { auth } from '../'
-import { ILoginRequest } from './../../types/authenticate/index'
-import { IUser } from './../../types/user/index'
+import { ILoginRequest } from './../types/authenticate'
+import { IUser } from './../types/user'
+import api, { auth } from './'
 const BASE_PATH = '/auth'
 
 export async function login(data: ILoginRequest): Promise<{ token: string }> {

@@ -10,13 +10,17 @@ import styles from './styles.module.scss'
 const LoginForm = () => {
   const { authStore } = useStores()
   const navigate = useNavigate()
-  const { register, handleSubmit, control } = useForm<ILoginRequest>()
+  const {
+    handleSubmit,
+    control,
+    formState: { errors }
+  } = useForm<ILoginRequest>()
 
-  async function login(data: ILoginRequest) {
+  async function login(data: ILoginRequest): Promise<void> {
     try {
       await authStore.login(data)
       navigate(routes.home.value)
-    } catch (error) {
+    } catch (err) {
       toast.error('Invalid email or password, please try again')
     }
   }
@@ -29,6 +33,7 @@ const LoginForm = () => {
           <Controller
             control={control}
             name="email"
+            rules={{ required: true }}
             render={({ field: { onChange, onBlur, value, ref, name } }) => (
               <Input
                 type="email"
@@ -42,6 +47,7 @@ const LoginForm = () => {
               />
             )}
           />
+          {errors.email?.message}
         </FormGroup>
         <FormGroup className={styles.form}>
           <Label htmlFor="password">Password</Label>

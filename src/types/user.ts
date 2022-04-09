@@ -1,4 +1,5 @@
-import { EUserRole } from './../../constants/enums/index'
+import { EUserRole } from '../constants/enums/user'
+
 export interface IUser {
   id: string
   email: string
