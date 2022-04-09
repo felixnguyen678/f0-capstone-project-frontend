@@ -2,6 +2,7 @@ import React from 'react'
 import { Provider } from 'mobx-react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 
 import './index.css'
 import App from './App'
@@ -12,6 +13,7 @@ function WrappedApp(): JSX.Element {
   return (
     <BrowserRouter>
       <Provider {...rootStore}>
+        <ToastContainer theme="colored" />
         <App />
       </Provider>
     </BrowserRouter>
