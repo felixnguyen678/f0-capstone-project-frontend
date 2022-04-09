@@ -14,7 +14,7 @@ export async function login(data: ILoginRequest): Promise<{ token: string }> {
 
 export async function getMyProfile(): Promise<IUser> {
   try {
-    const response = await api.get(`/auth/profile`, {
+    const response = await api.get(`${BASE_PATH}/profile`, {
       headers: auth()
     })
     return response.data

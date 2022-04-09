@@ -6,9 +6,12 @@ interface IMenuItemProps {
   item: IMenuItem
 }
 const MenuItem = (props: IMenuItemProps) => {
-  const { title, href, icon } = props.item
+  const { title, href, icon, handleOnClick } = props.item
   return (
     <NavLink
+      onClick={() => {
+        handleOnClick && handleOnClick()
+      }}
       style={({ isActive }) => {
         return {
           color: isActive ? 'blue' : ''
