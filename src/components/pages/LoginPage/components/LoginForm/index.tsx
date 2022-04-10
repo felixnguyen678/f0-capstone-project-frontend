@@ -76,7 +76,6 @@ const LoginForm = () => {
         <div className={styles.container}>
           <Button className={styles.button} type="submit" disabled={isLoading}>
             {isLoading ? <Spinner animation="border" size="sm" /> : <span>Login</span>}
-            
           </Button>
         </div>
       </Form>
