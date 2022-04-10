@@ -25,7 +25,7 @@ const LoginForm = () => {
       await authStore.login(data)
       navigate(routes.home.value)
     } catch (error) {
-      toast.error((error as Error)?.message)
+      toast.error('Invalid email or password, please try again.')
     }
     setIsLoading(false)
   }
