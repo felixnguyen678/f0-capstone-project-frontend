@@ -1,9 +1,9 @@
-import AuthenticationForm from '../components/pages/AuthenticationPage/components/AuthenticationForm'
+import AuthenticationContent from '../components/pages/AuthenticationPage/components/AuthenticationContent'
 
 const AuthenticationPage = () => {
   return (
     <div>
-      <AuthenticationForm />
+      <AuthenticationContent />
     </div>
   )
 }

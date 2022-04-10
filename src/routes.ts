@@ -20,8 +20,8 @@ const routes = {
   containers: {
     value: '/containers'
   },
-  authenticationCloudService: {
-    value: '/authenticationCloudService'
+  cloudServiceAuthentication: {
+    value: '/cloud-service-authentication'
   },
   users: {
     value: '/users',
