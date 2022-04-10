@@ -15,9 +15,19 @@
     label {
       font-weight: 600;
     }
-    .button {
-      background-color: $blue;
-      margin-left: 467px;
+
+    .container {
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
+      .button {
+        width: 70px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $blue;
+      }
     }
   }
 }

@@ -1,0 +1,13 @@
+@import '../../../../../scss/variables.scss';
+
+.container {
+  margin-bottom: 20px;
+  margin-top: 60px;
+  padding: 16px 300px;
+
+  @media only screen and (max-width: $large-screen) {
+    padding: 16px 100px;
+  }
+
+  text-align: center;
+}
