@@ -1,4 +1,6 @@
+import { observer } from 'mobx-react'
 import { Link } from 'react-router-dom'
+import { useStores } from '../../hooks/useStores'
 import routes from '../../routes'
 import Header from '../components/Header'
 import MenuItem from '../components/MenuItem'
@@ -7,6 +9,8 @@ import MENU_ITEM_DATA from './constants'
 import styles from './styles.module.scss'
 
 const AuthenticatedLayout = ({ ...props }) => {
+  const { authStore } = useStores()
+  const { currentUser } = authStore
   return (
     <>
       <Header>
@@ -16,7 +20,7 @@ const AuthenticatedLayout = ({ ...props }) => {
           </Link>
           <span className="d-flex py-2">
             <i className="ri-user-line me-2 h2"></i>
-            <h4 className="pt-1">user1</h4>
+            <h4 className="pt-1">{currentUser?.email}</h4>
           </span>
         </div>
       </Header>
@@ -30,7 +34,14 @@ const AuthenticatedLayout = ({ ...props }) => {
             </div>
             <div>
               <MenuItem
-                item={{ title: 'Logout', href: routes.login.value, icon: <i className="ri-login-box-line"></i> }}
+                item={{
+                  title: 'Logout',
+                  href: routes.login.value,
+                  icon: <i className="ri-login-box-line"></i>,
+                  handleOnClick: () => {
+                    authStore.clearAccessToken()
+                  }
+                }}
               />
             </div>
           </div>
@@ -41,4 +52,4 @@ const AuthenticatedLayout = ({ ...props }) => {
   )
 }
 
-export default AuthenticatedLayout
+export default observer(AuthenticatedLayout)
