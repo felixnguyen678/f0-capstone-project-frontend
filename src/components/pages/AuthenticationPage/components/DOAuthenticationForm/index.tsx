@@ -59,8 +59,7 @@ function DOAuthenticationForm() {
 
         <div className={styles.buttonContainer}>
           <Button className={styles.button} type="submit" disabled={isLoading}>
-            {isLoading ? 
-            <Spinner animation="border" size="sm" /> : <span>Login</span>}
+            {isLoading ? <Spinner animation="border" size="sm" /> : <span>Login</span>}
           </Button>
         </div>
       </Form>

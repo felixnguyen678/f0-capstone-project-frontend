@@ -33,14 +33,13 @@ const withAuthen = (Component: any) => (props: any) => {
   async function getMyCloudServiceAccount(): Promise<void> {
     try {
       const doAccount = await doAuthStore.getDoAccount()
-      if(!doAccount){
-        handleCloudServiceAccountNotFound();
+      if (!doAccount) {
+        handleCloudServiceAccountNotFound()
       }
     } catch (error) {
       handleCloudServiceAccountNotFound()
     }
   }
-
 
   useEffect(() => {
     getMyUser()

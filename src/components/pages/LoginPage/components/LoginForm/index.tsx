@@ -11,7 +11,7 @@ import styles from './styles.module.scss'
 const LoginForm = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const { authStore } = useStores()
-    const navigate = useNavigate()
+  const navigate = useNavigate()
   const {
     handleSubmit,
     control,

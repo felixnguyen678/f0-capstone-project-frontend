@@ -11,7 +11,7 @@ import styles from './styles.module.scss'
 const AuthenticatedLayout = ({ ...props }) => {
   const { authStore, doAuthStore, cloudServiceStore } = useStores()
   const { currentUser } = authStore
-  const {currentCloudService} = cloudServiceStore
+  const { currentCloudService } = cloudServiceStore
 
   return (
     <>
@@ -41,7 +41,7 @@ const AuthenticatedLayout = ({ ...props }) => {
               ))}
             </div>
             <div>
-            <MenuItem
+              <MenuItem
                 item={{
                   title: 'Logout Cloud Service',
                   href: routes.cloudServiceLogin.value,

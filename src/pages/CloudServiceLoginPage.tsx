@@ -1,15 +1,15 @@
-import { observer } from 'mobx-react';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { useEffect } from 'react'
+import { observer } from 'mobx-react'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import AuthenticationContent from '../components/pages/AuthenticationPage/components/AuthenticationContent'
 import { useStores } from '../hooks/useStores'
 import LoginLayout from '../layouts/LoginLayout'
-import routes from '../routes';
+import routes from '../routes'
 
 const CloudServiceLoginPage = () => {
-  const {authStore} = useStores();
-  const navigate = useNavigate();
+  const { authStore } = useStores()
+  const navigate = useNavigate()
 
   function handleCurrentUserNotFound(): void {
     navigate(routes.login.value)
@@ -26,11 +26,11 @@ const CloudServiceLoginPage = () => {
       handleCurrentUserNotFound()
     }
   }
-  
+
   useEffect(() => {
     getMyUser()
   }, [])
-  
+
   return (
     <div>
       <LoginLayout>
