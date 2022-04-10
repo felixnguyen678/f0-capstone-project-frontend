@@ -33,7 +33,7 @@ function App(): JSX.Element {
       <Route path={routes.users.value} element={<UsersPage />} />
       <Route path={routes.monitoring.value} element={<MonitoringPage />} />
 
-      <Route path={routes.authentication.value} element={<AuthenticationPage />} />
+      <Route path={routes.authenticationCloudService.value} element={<AuthenticationPage />} />
     </Routes>
   )
 }

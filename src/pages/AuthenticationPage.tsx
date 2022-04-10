@@ -1,9 +1,9 @@
-import CloudServiceOptionPage from '../components/pages/AuthenticationPage/components/AuthenticationForm'
+import AuthenticationForm from '../components/pages/AuthenticationPage/components/AuthenticationForm'
 
 const AuthenticationPage = () => {
   return (
     <div>
-      <CloudServiceOptionPage />
+      <AuthenticationForm />
     </div>
   )
 }

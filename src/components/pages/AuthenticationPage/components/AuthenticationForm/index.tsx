@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { CardGroup, Card, CardImg, CardBody, CardTitle } from 'reactstrap'
+import { Card, CardBody, CardGroup, CardImg, CardTitle } from 'reactstrap'
 import AWSAuthenticationForm from '../AWSAuthenticationForm'
 import DOAuthenticationForm from '../DigitalOceanAuthenticationForm'
 import GCAuthenticationForm from '../GoogleCloudAuthenticationForm'
@@ -7,7 +7,7 @@ import { ECloudService } from './constants'
 import { CloudServices } from './data'
 import styles from './styles.module.scss'
 
-function CloudServiceOptionPage() {
+function AuthenticationForm() {
   const [currentCloudService, setCurrentCloudService] = useState<ECloudService>(ECloudService.DIGITAL_OCEAN)
   function onClickServiceCard(cloudService: ECloudService): void {
     setCurrentCloudService(cloudService)
@@ -30,11 +30,11 @@ function CloudServiceOptionPage() {
             )
           })}
       </CardGroup>
-      {currentCloudService === ECloudService.DIGITAL_OCEAN && <DOAuthenticationForm />}
+      {currentCloudService === ECloudService.DIGITAL_OCEAN && <DOAuthenticationForm /> }
       {currentCloudService === ECloudService.AWS && <AWSAuthenticationForm />}
       {currentCloudService === ECloudService.GOOGLE_CLOUD && <GCAuthenticationForm />}
     </div>
   )
 }
 
-export default CloudServiceOptionPage
+export default AuthenticationForm
