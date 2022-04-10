@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useForm, Controller } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { Button, Form, FormGroup, Input, Label, Spinner } from 'reactstrap'
@@ -24,8 +24,8 @@ const LoginForm = () => {
       setIsLoading(true)
       await authStore.login(data)
       navigate(routes.home.value)
-    } catch (err: any) {
-      toast.error(err?.message)
+    } catch (error) {
+      toast.error((error as Error)?.message)
     }
     setIsLoading(false)
   }
@@ -39,16 +39,14 @@ const LoginForm = () => {
             control={control}
             name="email"
             rules={{ required: true }}
-            render={({ field: { onChange, onBlur, value, ref, name } }) => (
+            render={({ field: { onChange, value, name } }) => (
               <Input
                 type="email"
                 id="email"
                 name={name}
                 placeholder="example@mail.com"
-                innerRef={ref}
                 value={value}
                 onChange={onChange}
-                onBlur={onBlur}
               />
             )}
           />
@@ -59,16 +57,14 @@ const LoginForm = () => {
           <Controller
             control={control}
             name="password"
-            render={({ field: { onChange, onBlur, value, ref, name } }) => (
+            render={({ field: { onChange, value, name } }) => (
               <Input
                 type="password"
                 id="password"
                 name={name}
                 placeholder="********"
-                innerRef={ref}
                 value={value}
                 onChange={onChange}
-                onBlur={onBlur}
               />
             )}
           />
