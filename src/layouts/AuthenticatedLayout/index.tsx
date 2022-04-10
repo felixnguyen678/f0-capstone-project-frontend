@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react'
 import { Link } from 'react-router-dom'
 import { useStores } from '../../hooks/useStores'
 import routes from '../../routes'
@@ -9,6 +10,7 @@ import styles from './styles.module.scss'
 
 const AuthenticatedLayout = ({ ...props }) => {
   const { authStore } = useStores()
+  const { currentUser } = authStore
   return (
     <>
       <Header>
@@ -18,7 +20,7 @@ const AuthenticatedLayout = ({ ...props }) => {
           </Link>
           <span className="d-flex py-2">
             <i className="ri-user-line me-2 h2"></i>
-            <h4 className="pt-1">{authStore.user?.email}</h4>
+            <h4 className="pt-1">{currentUser?.email}</h4>
           </span>
         </div>
       </Header>
@@ -50,4 +52,4 @@ const AuthenticatedLayout = ({ ...props }) => {
   )
 }
 
-export default AuthenticatedLayout
+export default observer(AuthenticatedLayout)

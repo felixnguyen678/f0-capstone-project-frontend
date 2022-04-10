@@ -1,4 +1,4 @@
-import { makeObservable, observable } from 'mobx'
+import { action, makeObservable, observable } from 'mobx'
 import { getMyProfile, login } from '../API/authenticate'
 import { ELocalStorageKeys } from '../constants/enums/localStorage'
 import { ILoginRequest } from '../types/authenticate'
@@ -7,12 +7,16 @@ import { RootStore } from './index'
 
 export default class AuthStore {
   rootStore: RootStore
-  token: string = ''
-  user: IUser | null = null
+  currentUser: IUser | null = null
 
   constructor(rootStore: RootStore) {
     makeObservable(this, {
-      status: observable
+      currentUser: observable,
+      getAccessToken: action,
+      getMyUser: action,
+      setAccessToken: action,
+      clearAccessToken: action,
+      login: action
     })
 
     this.rootStore = rootStore
@@ -20,48 +24,39 @@ export default class AuthStore {
 
   async getMyUser(): Promise<IUser | null> {
     const currentUser = await getMyProfile()
-    this.user = currentUser
-    return this.user
+    this.currentUser = currentUser
+    return currentUser
   }
 
   setAccessToken(accessToken: string): void {
     const token = ELocalStorageKeys.ACCESS_TOKEN
-    sessionStorage.setItem(token, accessToken)
-    this.token = accessToken
+    localStorage.setItem(token, accessToken)
   }
 
   clearAccessToken(): void {
     const token = ELocalStorageKeys.ACCESS_TOKEN
-    sessionStorage.removeItem(token)
-    this.token = ''
-    this.user = null
+    localStorage.removeItem(token)
+    this.currentUser = null
   }
 
   async getAccessToken(): Promise<void> {
+    const errorMessage = 'Cannot get access token, please try again'
     const token = ELocalStorageKeys.ACCESS_TOKEN
     const currentToken: string = localStorage.getItem(token) || ''
-    this.token = currentToken
     try {
-      if (currentToken) {
-        const currentUser = await getMyProfile()
-        this.user = currentUser
-      } else {
-        throw Error('Cannot get access token, please try again')
+      if (!currentToken) {
+        throw Error(errorMessage)
       }
+      const currentUser = await getMyProfile()
+      this.currentUser = currentUser
     } catch (error) {
-      throw Error('Cannot get access token, please try again')
+      throw Error(errorMessage)
     }
   }
 
   async login(data: ILoginRequest): Promise<void> {
-    try {
-      const { token } = await login(data)
-      this.setAccessToken(token)
-      await this.getMyUser()
-    } catch (error: any) {
-      throw Error('Invalid username or password, please try again')
-    }
+    const { token } = await login(data)
+    this.setAccessToken(token)
+    await this.getMyUser()
   }
-
-  status: boolean = true
 }
