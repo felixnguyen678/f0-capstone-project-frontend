@@ -15,7 +15,7 @@ export default class AuthStore {
       getAccessToken: action,
       getMyUser: action,
       setAccessToken: action,
-      clearAccessToken: action,
+      logout: action,
       login: action
     })
 
@@ -33,7 +33,7 @@ export default class AuthStore {
     localStorage.setItem(token, accessToken)
   }
 
-  clearAccessToken(): void {
+  logout(): void {
     const token = ELocalStorageKeys.ACCESS_TOKEN
     localStorage.removeItem(token)
     this.currentUser = null

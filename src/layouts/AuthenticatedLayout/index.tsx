@@ -9,8 +9,10 @@ import MENU_ITEM_DATA from './constants'
 import styles from './styles.module.scss'
 
 const AuthenticatedLayout = ({ ...props }) => {
-  const { authStore } = useStores()
+  const { authStore, doAuthStore, cloudServiceStore } = useStores()
   const { currentUser } = authStore
+  const {currentCloudService} = cloudServiceStore
+
   return (
     <>
       <Header>
@@ -20,12 +22,12 @@ const AuthenticatedLayout = ({ ...props }) => {
           </Link>
           <div className={styles.rightColumn}>
             <div className={styles.item}>
-              <i className="ri-cloud-line"></i>
-              <h4 className="">Digital Ocean</h4>
+              <i className={`ri-cloud-line ${styles.itemIcon}`}></i>
+              <h4 className={styles.itemTitle}>{currentCloudService}</h4>
             </div>
             <div className={styles.item}>
-              <i className="ri-user-line"></i>
-              <h4 className="">{currentUser?.email}</h4>
+              <i className={`ri-user-line ${styles.itemIcon}`}></i>
+              <h4 className={styles.itemTitle}>{currentUser?.email}</h4>
             </div>
           </div>
         </div>
@@ -39,13 +41,24 @@ const AuthenticatedLayout = ({ ...props }) => {
               ))}
             </div>
             <div>
+            <MenuItem
+                item={{
+                  title: 'Logout Cloud Service',
+                  href: routes.cloudServiceLogin.value,
+                  icon: <i className="ri-logout-circle-r-line"></i>,
+                  handleOnClick: () => {
+                    doAuthStore.logoutDo()
+                  }
+                }}
+              />
               <MenuItem
                 item={{
-                  title: 'Logout',
+                  title: 'Logout System',
                   href: routes.login.value,
                   icon: <i className="ri-login-box-line"></i>,
                   handleOnClick: () => {
-                    authStore.clearAccessToken()
+                    authStore.logout()
+                    doAuthStore.logoutDo()
                   }
                 }}
               />

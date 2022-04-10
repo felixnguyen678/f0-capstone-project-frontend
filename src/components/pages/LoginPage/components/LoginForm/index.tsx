@@ -11,7 +11,7 @@ import styles from './styles.module.scss'
 const LoginForm = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const { authStore } = useStores()
-  const navigate = useNavigate()
+    const navigate = useNavigate()
   const {
     handleSubmit,
     control,
@@ -23,7 +23,8 @@ const LoginForm = () => {
     try {
       setIsLoading(true)
       await authStore.login(data)
-      navigate(routes.home.value)
+      toast.success('Login successfully.')
+      navigate(routes.cloudServiceLogin.value)
     } catch (error) {
       toast.error('Invalid email or password, please try again.')
     }
@@ -69,7 +70,7 @@ const LoginForm = () => {
             )}
           />
         </FormGroup>
-        <div className={styles.container}>
+        <div className={styles.buttonContainer}>
           <Button className={styles.button} type="submit" disabled={isLoading}>
             {isLoading ? <Spinner animation="border" size="sm" /> : <span>Login</span>}
           </Button>

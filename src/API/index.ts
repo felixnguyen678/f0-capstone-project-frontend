@@ -1,6 +1,7 @@
-import axios, { AxiosRequestConfig, AxiosRequestHeaders } from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 import { ELocalStorageKeys } from '../constants/enums/localStorage'
 import { BE_URL } from './../constants/config'
+import { ERequestHeader } from './../constants/enums/requestHeader'
 
 const api = axios.create({
   baseURL: BE_URL
@@ -10,9 +11,14 @@ api.interceptors.request.use(
   function (config: AxiosRequestConfig) {
     let customizedConfig = { ...config }
     if (customizedConfig.headers) {
-      const tokenKey = ELocalStorageKeys.ACCESS_TOKEN
-      const accessToken = localStorage.getItem(tokenKey) || ''
-      customizedConfig.headers.Authorization = `Bearer ${accessToken}`
+      const accessTokenKey = ELocalStorageKeys.ACCESS_TOKEN
+      const doTokenKey = ELocalStorageKeys.DO_TOKEN
+
+      const accessToken = localStorage.getItem(accessTokenKey) || ''
+      const doToken = localStorage.getItem(doTokenKey) || ''
+
+      customizedConfig.headers[ERequestHeader.AUTHORIZATION] = `Bearer ${accessToken}`
+      customizedConfig.headers[ERequestHeader.DO_AUTHORIZATION] = doToken
     }
 
     return customizedConfig
@@ -36,14 +42,5 @@ api.interceptors.response.use(
     return Promise.reject(error)
   }
 )
-
-export function auth(): AxiosRequestHeaders {
-  const headers = { authorization: '' }
-  const tokenKey = ELocalStorageKeys.ACCESS_TOKEN
-  const accessToken = localStorage.getItem(tokenKey) || ''
-  headers.authorization = `Bearer ${accessToken}`
-
-  return headers
-}
 
 export default api

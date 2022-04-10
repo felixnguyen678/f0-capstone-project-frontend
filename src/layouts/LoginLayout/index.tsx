@@ -1,7 +1,7 @@
 import Header from '../components/Header'
 import styles from './styles.module.scss'
 
-export const GuestLayout = ({ ...props }) => {
+export const LoginLayout = ({ ...props }) => {
   return (
     <>
       <Header>
@@ -12,4 +12,4 @@ export const GuestLayout = ({ ...props }) => {
   )
 }
 
-export default GuestLayout
+export default LoginLayout

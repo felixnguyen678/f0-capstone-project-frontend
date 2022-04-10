@@ -10,14 +10,5 @@
   font-size: 20px;
   border-right: $light-white solid 1px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  width: 300px;
-
-  .item {
-    padding: 10px 0;
-    cursor: pointer;
-
-    &:hover {
-      background-color: $secondary;
-    }
-  }
+  width: 350px;
 }
