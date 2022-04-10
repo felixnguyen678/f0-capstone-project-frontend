@@ -9,7 +9,12 @@ function GCAuthenticationForm() {
           <Label className={styles.label} htmlFor="authorizationGCKey">
             Please enter authorization Google Cloud key
           </Label>
-          <Input type="text" name="authorizationGCKey" id="authorizationGCKey" placeholder="Enter your authorization key" />
+          <Input
+            type="text"
+            name="authorizationGCKey"
+            id="authorizationGCKey"
+            placeholder="Enter your authorization key"
+          />
         </FormGroup>
         <Button type="submit" className={styles.button}>
           Submit

@@ -30,7 +30,7 @@ function AuthenticationForm() {
             )
           })}
       </CardGroup>
-      {currentCloudService === ECloudService.DIGITAL_OCEAN && <DOAuthenticationForm /> }
+      {currentCloudService === ECloudService.DIGITAL_OCEAN && <DOAuthenticationForm />}
       {currentCloudService === ECloudService.AWS && <AWSAuthenticationForm />}
       {currentCloudService === ECloudService.GOOGLE_CLOUD && <GCAuthenticationForm />}
     </div>

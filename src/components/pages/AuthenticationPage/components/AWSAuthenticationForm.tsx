@@ -9,7 +9,12 @@ function AWSAuthenticationForm() {
           <Label className={styles.label} htmlFor="authorizationAWSKey">
             Please enter authorization AWS key
           </Label>
-          <Input type="text" name="authorizationAWSKey" id="authorizationAWSKey" placeholder="Enter your authorization key" />
+          <Input
+            type="text"
+            name="authorizationAWSKey"
+            id="authorizationAWSKey"
+            placeholder="Enter your authorization key"
+          />
         </FormGroup>
         <Button type="submit" className={styles.button}>
           Submit

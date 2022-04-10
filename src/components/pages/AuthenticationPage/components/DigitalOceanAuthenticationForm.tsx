@@ -9,7 +9,12 @@ function DOAuthenticationForm() {
           <Label className={styles.label} htmlFor="authorizationDOKey">
             Please enter authorization Digital Ocean key
           </Label>
-          <Input type="text" name="authorizationDOKey" id="authorizationDOKey" placeholder="Enter your authorization key" />
+          <Input
+            type="text"
+            name="authorizationDOKey"
+            id="authorizationDOKey"
+            placeholder="Enter your authorization key"
+          />
         </FormGroup>
         <Button type="submit" className={styles.button}>
           Submit
