@@ -1,13 +1,15 @@
+import { useState } from 'react'
 import { useForm, Controller } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
+import { Button, Form, FormGroup, Input, Label, Spinner } from 'reactstrap'
 import { useStores } from '../../../../../hooks/useStores'
 import routes from '../../../../../routes'
 import { ILoginRequest } from '../../../../../types/authenticate'
 import styles from './styles.module.scss'
 
 const LoginForm = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const { authStore } = useStores()
   const navigate = useNavigate()
   const {
@@ -17,12 +19,15 @@ const LoginForm = () => {
   } = useForm<ILoginRequest>()
 
   async function login(data: ILoginRequest): Promise<void> {
+    setIsLoading(true)
     try {
+      setIsLoading(true)
       await authStore.login(data)
       navigate(routes.home.value)
-    } catch (err) {
-      toast.error('Invalid email or password, please try again')
+    } catch (err: any) {
+      toast.error(err?.message)
     }
+    setIsLoading(false)
   }
   return (
     <div className={styles.signInForm}>
@@ -68,9 +73,12 @@ const LoginForm = () => {
             )}
           />
         </FormGroup>
-        <Button className={styles.button} type="submit">
-          Login
-        </Button>
+        <div className={styles.container}>
+          <Button className={styles.button} type="submit" disabled={isLoading}>
+            {isLoading ? <Spinner animation="border" size="sm" /> : <span>Login</span>}
+            
+          </Button>
+        </div>
       </Form>
     </div>
   )

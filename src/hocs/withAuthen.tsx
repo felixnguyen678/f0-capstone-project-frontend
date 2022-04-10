@@ -8,19 +8,24 @@ import routes from '../routes'
 const withAuthen = (Component: any) => (props: any) => {
   const { authStore } = useStores()
   const navigate = useNavigate()
-  useEffect(() => {
-    ;(async () => {
-      try {
-        const myUser = await authStore.getMyUser()
-        if (!myUser) {
-          navigate(routes.login.value)
-          toast.error('Something may wrong, please login again ')
-        }
-      } catch (error: any) {
-        navigate(routes.login.value)
-        toast.error('Something may wrong, please login again ')
+
+  function handleCurrentUserNotFound(): void {
+    navigate(routes.login.value)
+    toast.error('Something may wrong, please login again ')
+  }
+
+  async function getMyUser(): Promise<void> {
+    try {
+      const myUser = await authStore.getMyUser()
+      if (!myUser) {
+        handleCurrentUserNotFound()
       }
-    })()
+    } catch (error) {
+      handleCurrentUserNotFound()
+    }
+  }
+  useEffect(() => {
+    getMyUser()
   }, [])
   return (
     <>
