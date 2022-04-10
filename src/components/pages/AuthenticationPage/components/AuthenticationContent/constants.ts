@@ -1,10 +1,12 @@
 import { ECloudService } from '../../../../../constants/enums/cloudService'
+import awsAvatar from '../../../../../static/images/aws-avatar.png'
 import doAvatar from '../../../../../static/images/do-avatar.jpeg'
+import gcAvatar from '../../../../../static/images/gc-avatar.png'
 import { ICloudServiceInfo } from './types'
 
 export const CLOUD_SERVICES: Array<ICloudServiceInfo> = [
   {
-    imageSrc: 'https://picsum.photos/318/180',
+    imageSrc: awsAvatar,
     name: ECloudService.AWS
   },
   {
@@ -12,7 +14,7 @@ export const CLOUD_SERVICES: Array<ICloudServiceInfo> = [
     name: ECloudService.DIGITAL_OCEAN
   },
   {
-    imageSrc: 'https://picsum.photos/318/180',
+    imageSrc: gcAvatar,
     name: ECloudService.GOOGLE_CLOUD
   }
 ]
