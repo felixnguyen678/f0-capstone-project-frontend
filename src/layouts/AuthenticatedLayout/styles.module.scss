@@ -8,3 +8,28 @@
 .title:hover {
   color: $white;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .title:hover {
+    color: $white;
+  }
+
+  .rightColumn {
+    display: flex;
+
+    .item {
+      display: flex;
+      margin-left: 30px;
+      i {
+        font-size: 2rem;
+      }
+      h4 {
+        padding-top: 10px;
+      }
+    }
+  }
+}

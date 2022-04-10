@@ -14,14 +14,20 @@ const AuthenticatedLayout = ({ ...props }) => {
   return (
     <>
       <Header>
-        <div className="d-flex justify-content-between">
+        <div className={styles.header}>
           <Link to={routes.home.value} className={styles.title}>
-            <h1 className="text-center">FzeroCloud</h1>
+            <h1>FzeroCloud</h1>
           </Link>
-          <span className="d-flex py-2">
-            <i className="ri-user-line me-2 h2"></i>
-            <h4 className="pt-1">{currentUser?.email}</h4>
-          </span>
+          <div className={styles.rightColumn}>
+            <div className={styles.item}>
+              <i className="ri-cloud-line"></i>
+              <h4 className="">Digital Ocean</h4>
+            </div>
+            <div className={styles.item}>
+              <i className="ri-user-line"></i>
+              <h4 className="">{currentUser?.email}</h4>
+            </div>
+          </div>
         </div>
       </Header>
       <div className="d-flex">
