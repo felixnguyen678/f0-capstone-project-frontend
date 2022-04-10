@@ -1,0 +1,31 @@
+@import '../../../../../scss/variables.scss';
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 32px;
+  width: 600px;
+  height: 200px;
+
+  position: relative;
+
+  border: 2px solid $border-color;
+  border-radius: 10px;
+  text-align: left;
+
+  .inputContainer {
+    label {
+      font-weight: 600;
+    }
+  }
+
+  .buttonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    .button {
+      background-color: $blue;
+    }
+  }
+}
