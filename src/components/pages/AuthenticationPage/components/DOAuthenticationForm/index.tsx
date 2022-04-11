@@ -3,6 +3,7 @@ import { Controller, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { Button, Form, FormGroup, Input, Label, Spinner } from 'reactstrap'
+import { TEST_DO_TOKEN } from '../../../../../constants/config'
 import { ECloudService } from '../../../../../constants/enums/cloudService'
 import { useStores } from '../../../../../hooks/useStores'
 import routes from '../../../../../routes'
@@ -11,9 +12,11 @@ import styles from './styles.module.scss'
 
 function DOAuthenticationForm() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
+  const { handleSubmit, control, setValue } = useForm<IDoAuthenticationRequest>()
   const { doAuthStore, cloudServiceStore } = useStores()
   const navigate = useNavigate()
 
+  console.log(process.env.REACT_APP_BE_URL)
   async function loginDo(data: IDoAuthenticationRequest): Promise<void> {
     const cloudServiceName = ECloudService.DIGITAL_OCEAN
 
@@ -29,8 +32,6 @@ function DOAuthenticationForm() {
       setIsLoading(false)
     }
   }
-
-  const { handleSubmit, control } = useForm<IDoAuthenticationRequest>()
 
   return (
     <div className={styles.container}>
@@ -55,7 +56,16 @@ function DOAuthenticationForm() {
         </FormGroup>
 
         <div className={styles.buttonContainer}>
-          <Button className={styles.button} type="submit" disabled={isLoading}>
+          <Button
+            className={styles.testButton}
+            disabled={isLoading}
+            onClick={() => {
+              setValue('token', TEST_DO_TOKEN)
+            }}
+          >
+            Test
+          </Button>
+          <Button className={styles.submitButton} type="submit" disabled={isLoading}>
             {isLoading ? <Spinner animation="border" size="sm" /> : <span>Login</span>}
           </Button>
         </div>

@@ -1,3 +1,4 @@
+@import '../../../../../scss/global.scss';
 @import '../../../../../scss/variables.scss';
 
 .container {
@@ -24,13 +25,17 @@
     display: flex;
     justify-content: flex-end;
 
-    .button {
+    .submitButton {
+      @include button;
+      background-color: blue;
       width: 70px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: $blue;
+    }
+
+    .testButton {
+      @include button;
+      background-color: green;
+      margin-right: 5px;
+      width: 70px;
     }
   }
 }
