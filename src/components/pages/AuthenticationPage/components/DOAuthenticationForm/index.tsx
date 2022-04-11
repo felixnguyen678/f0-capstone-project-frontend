@@ -16,24 +16,21 @@ function DOAuthenticationForm() {
 
   async function loginDo(data: IDoAuthenticationRequest): Promise<void> {
     const cloudServiceName = ECloudService.DIGITAL_OCEAN
-    setIsLoading(true)
+
     try {
       setIsLoading(true)
-      await doAuthStore.loginDo(data)
+      await doAuthStore.loginDO(data)
       cloudServiceStore.setCurrentCloudService(cloudServiceName)
       toast.success('Login cloud serive successfully.')
       navigate(routes.home.value)
     } catch (error) {
       toast.error('Invalid token, please try again.')
+    } finally {
+      setIsLoading(false)
     }
-    setIsLoading(false)
   }
 
-  const {
-    handleSubmit,
-    control,
-    formState: { errors }
-  } = useForm<IDoAuthenticationRequest>()
+  const { handleSubmit, control } = useForm<IDoAuthenticationRequest>()
 
   return (
     <div className={styles.container}>
@@ -46,12 +43,12 @@ function DOAuthenticationForm() {
             rules={{ required: true }}
             render={({ field: { onChange, value, name } }) => (
               <Input
-                type="text"
                 id="token"
                 name={name}
                 placeholder="Enter your authorization key"
                 value={value}
                 onChange={onChange}
+                readOnly={isLoading}
               />
             )}
           />

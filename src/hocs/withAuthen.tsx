@@ -32,7 +32,7 @@ const withAuthen = (Component: any) => (props: any) => {
 
   async function getMyCloudServiceAccount(): Promise<void> {
     try {
-      const doAccount = await doAuthStore.getDoAccount()
+      const doAccount = await doAuthStore.getDOAccount()
       if (!doAccount) {
         handleCloudServiceAccountNotFound()
       }

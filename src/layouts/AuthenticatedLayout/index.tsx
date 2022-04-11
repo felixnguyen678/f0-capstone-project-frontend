@@ -47,7 +47,7 @@ const AuthenticatedLayout = ({ ...props }) => {
                   href: routes.cloudServiceLogin.value,
                   icon: <i className="ri-logout-circle-r-line"></i>,
                   handleOnClick: () => {
-                    doAuthStore.logoutDo()
+                    doAuthStore.logoutDO()
                   }
                 }}
               />
@@ -58,7 +58,7 @@ const AuthenticatedLayout = ({ ...props }) => {
                   icon: <i className="ri-login-box-line"></i>,
                   handleOnClick: () => {
                     authStore.logout()
-                    doAuthStore.logoutDo()
+                    doAuthStore.logoutDO()
                   }
                 }}
               />
