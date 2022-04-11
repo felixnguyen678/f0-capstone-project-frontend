@@ -9,19 +9,27 @@ import MENU_ITEM_DATA from './constants'
 import styles from './styles.module.scss'
 
 const AuthenticatedLayout = ({ ...props }) => {
-  const { authStore } = useStores()
+  const { authStore, doAuthStore, cloudServiceStore } = useStores()
   const { currentUser } = authStore
+  const { currentCloudService } = cloudServiceStore
+
   return (
     <>
       <Header>
-        <div className="d-flex justify-content-between">
+        <div className={styles.header}>
           <Link to={routes.home.value} className={styles.title}>
-            <h1 className="text-center">FzeroCloud</h1>
+            <h1>FzeroCloud</h1>
           </Link>
-          <span className="d-flex py-2">
-            <i className="ri-user-line me-2 h2"></i>
-            <h4 className="pt-1">{currentUser?.email}</h4>
-          </span>
+          <div className={styles.rightColumn}>
+            <div className={styles.item}>
+              <i className={`ri-cloud-line ${styles.itemIcon}`}></i>
+              <h4 className={styles.itemTitle}>{currentCloudService}</h4>
+            </div>
+            <div className={styles.item}>
+              <i className={`ri-user-line ${styles.itemIcon}`}></i>
+              <h4 className={styles.itemTitle}>{currentUser?.email}</h4>
+            </div>
+          </div>
         </div>
       </Header>
       <div className="d-flex">
@@ -35,11 +43,22 @@ const AuthenticatedLayout = ({ ...props }) => {
             <div>
               <MenuItem
                 item={{
-                  title: 'Logout',
+                  title: 'Logout Cloud Service',
+                  href: routes.cloudServiceLogin.value,
+                  icon: <i className="ri-logout-circle-r-line"></i>,
+                  handleOnClick: () => {
+                    doAuthStore.logoutDO()
+                  }
+                }}
+              />
+              <MenuItem
+                item={{
+                  title: 'Logout System',
                   href: routes.login.value,
                   icon: <i className="ri-login-box-line"></i>,
                   handleOnClick: () => {
-                    authStore.clearAccessToken()
+                    authStore.logout()
+                    doAuthStore.logoutDO()
                   }
                 }}
               />

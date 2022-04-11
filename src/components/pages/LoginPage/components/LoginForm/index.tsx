@@ -23,12 +23,14 @@ const LoginForm = () => {
     try {
       setIsLoading(true)
       await authStore.login(data)
-      navigate(routes.home.value)
+      toast.success('Login successfully.')
+      navigate(routes.cloudServiceLogin.value)
     } catch (error) {
       toast.error('Invalid email or password, please try again.')
     }
     setIsLoading(false)
   }
+
   return (
     <div className={styles.signInForm}>
       <h2 className={styles.title}>Sign In</h2>
@@ -69,7 +71,7 @@ const LoginForm = () => {
             )}
           />
         </FormGroup>
-        <div className={styles.container}>
+        <div className={styles.buttonContainer}>
           <Button className={styles.button} type="submit" disabled={isLoading}>
             {isLoading ? <Spinner animation="border" size="sm" /> : <span>Login</span>}
           </Button>

@@ -6,7 +6,7 @@ import DOAuthenticationForm from '../DOAuthenticationForm'
 import { CLOUD_SERVICES } from './constants'
 import styles from './styles.module.scss'
 
-function AuthenticationForm() {
+function CloudLoginForm() {
   const [currentCloudService, setCurrentCloudService] = useState<ECloudService>(ECloudService.DIGITAL_OCEAN)
 
   function onClickServiceCard(cloudService: ECloudService): void {
@@ -34,4 +34,4 @@ function AuthenticationForm() {
   )
 }
 
-export default AuthenticationForm
+export default CloudLoginForm

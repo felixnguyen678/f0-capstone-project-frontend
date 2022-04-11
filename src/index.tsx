@@ -1,5 +1,5 @@
-import { Provider } from 'mobx-react'
 import React from 'react'
+import { Provider } from 'mobx-react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
