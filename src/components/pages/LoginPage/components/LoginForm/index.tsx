@@ -30,6 +30,7 @@ const LoginForm = () => {
     }
     setIsLoading(false)
   }
+
   return (
     <div className={styles.signInForm}>
       <h2 className={styles.title}>Sign In</h2>

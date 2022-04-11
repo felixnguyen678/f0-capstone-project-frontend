@@ -1,0 +1,32 @@
+@import '../../scss/variables.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .title:hover {
+    color: $white;
+  }
+
+  .rightColumn {
+    display: flex;
+
+    .item {
+      display: flex;
+      margin-left: 30px;
+      cursor: pointer;
+
+      .itemIcon {
+        font-size: 2rem;
+        margin-right: 6px;
+      }
+      .itemTitle {
+        padding-top: 10px;
+      }
+    }
+  }
+}
+
+.main {
+  padding-top: 100px;
+}
