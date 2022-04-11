@@ -53,7 +53,7 @@ const CloudServiceLoginPage = () => {
             >
               <div className={styles.item}>
                 <i className={`ri-login-box-line ${styles.itemIcon}`}></i>
-                <h4 className={styles.itemTitle}>Logout System</h4>
+                <h4 className={styles.itemTitle}>Logout</h4>
               </div>
             </Link>
           </div>

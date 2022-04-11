@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
 import { useStores } from '../hooks/useStores'
 import AuthenticatedLayout from '../layouts/AuthenticatedLayout'
 import routes from '../routes'
@@ -11,12 +10,10 @@ const withAuthen = (Component: any) => (props: any) => {
 
   function handleCurrentUserNotFound(): void {
     navigate(routes.login.value)
-    toast.error('Something may wrong, please login again ')
   }
 
   function handleCloudServiceAccountNotFound(): void {
     navigate(routes.cloudServiceLogin.value)
-    toast.error('Cloud service account not found, please login again ')
   }
 
   async function getMyUser(): Promise<void> {
