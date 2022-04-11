@@ -27,13 +27,13 @@
 
     .submitButton {
       @include button;
-      background-color: blue;
+      background-color: $blue;
       width: 70px;
     }
 
     .testButton {
       @include button;
-      background-color: green;
+      background-color: $green;
       margin-right: 5px;
       width: 70px;
     }
