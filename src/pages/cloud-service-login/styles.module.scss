@@ -1,19 +1,9 @@
 @import '../../scss/variables.scss';
 
-.main {
-  padding-top: 100px;
-  padding-left: 350px;
-}
-
-.title:hover {
-  color: $white;
-}
-
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   .title:hover {
     color: $white;
   }
@@ -21,9 +11,15 @@
   .rightColumn {
     display: flex;
 
+    a:hover {
+      color: $white;
+    }
+
     .item {
       display: flex;
       margin-left: 30px;
+      cursor: pointer;
+
       .itemIcon {
         font-size: 2rem;
         margin-right: 6px;
@@ -32,5 +28,10 @@
         padding-top: 10px;
       }
     }
+    
   }
+}
+
+.main {
+  padding-top: 100px;
 }

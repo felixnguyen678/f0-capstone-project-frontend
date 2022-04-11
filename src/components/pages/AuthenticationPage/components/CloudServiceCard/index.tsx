@@ -1,7 +1,7 @@
 import cx from 'classnames'
 import { Card, CardBody, CardImg, CardTitle } from 'reactstrap'
 import { ECloudService } from '../../../../../constants/enums/cloudService'
-import { ICloudServiceInfo } from '../AuthenticationContent/types'
+import { ICloudServiceInfo } from '../CloudLoginForm/types'
 import styles from './styles.module.scss'
 
 interface ICloudServiceCardProps {
