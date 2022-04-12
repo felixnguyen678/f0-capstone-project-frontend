@@ -1,0 +1,27 @@
+import { useState } from 'react'
+import { Nav } from 'reactstrap'
+import { EMonitoringTabs } from '../../../../../constants/enums/monitoringTabs'
+import TabsContainer from '../MonitoringTabs'
+import { MONITORING_TABS } from './constants'
+import styles from './styles.module.scss'
+
+const MonitoringContent = () => {
+  const [currentTab, setTabActive] = useState<EMonitoringTabs>(EMonitoringTabs.CPU)
+  function onClickTab(tabName: EMonitoringTabs): void {
+    setTabActive(tabName)
+  }
+  return (
+    <div className={styles.wrapper}>
+      <div className={styles.tabsContainer}>
+        <Nav tabs>
+          {Array.isArray(MONITORING_TABS) &&
+            MONITORING_TABS.map((graphItem, index) => {
+              return <TabsContainer key={index} info={graphItem} currentTab={currentTab} onClickTab={onClickTab} />
+            })}
+        </Nav>
+      </div>
+    </div>
+  )
+}
+
+export default MonitoringContent
