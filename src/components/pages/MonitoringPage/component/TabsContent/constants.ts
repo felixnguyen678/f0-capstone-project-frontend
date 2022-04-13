@@ -16,5 +16,8 @@ export const MONITORING_TABS: Array<IMonitoringTabInfo> = [
   },
   {
     name: EMonitoringTabs.DISK_USAGE
+  },
+  {
+    name: EMonitoringTabs.BANDWIDTH
   }
 ]
