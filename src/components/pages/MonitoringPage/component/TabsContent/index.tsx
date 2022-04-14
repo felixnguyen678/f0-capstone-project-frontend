@@ -13,7 +13,7 @@ const MonitoringContent = () => {
   }
   return (
     <div className={styles.wrapper}>
-      <div className={styles.tabsContainer}>
+      <div className={styles.boardContainer}>
         <Nav tabs>
           {Array.isArray(MONITORING_TABS) &&
             MONITORING_TABS.map((graphItem, index) => {
