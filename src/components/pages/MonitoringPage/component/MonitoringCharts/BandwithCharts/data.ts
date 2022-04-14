@@ -1,4 +1,4 @@
-const ylabels = [
+const xlabels = [
   '10:05',
   '10:10',
   '10:15',
@@ -14,7 +14,7 @@ const ylabels = [
 ]
 
 export const data = {
-  labels: ylabels,
+  labels: xlabels,
   datasets: [
     {
       label: 'public - inbound',
