@@ -3,6 +3,7 @@ import { Nav } from 'reactstrap'
 import { EMonitoringTabs } from '../../../../../constants/enums/monitoringTabs'
 import BandwidthChart from '../MonitoringCharts/BandwithCharts'
 import TabsContainer from '../MonitoringTabs'
+import PeriodDropdowns from '../SelectPeriod'
 import { MONITORING_TABS } from './constants'
 import styles from './styles.module.scss'
 
@@ -14,6 +15,9 @@ const MonitoringContent = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.boardContainer}>
+        <div className={styles.periodDropdown}>
+          <PeriodDropdowns />
+        </div>
         <Nav tabs>
           {Array.isArray(MONITORING_TABS) &&
             MONITORING_TABS.map((graphItem, index) => {
