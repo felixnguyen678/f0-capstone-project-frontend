@@ -15,15 +15,17 @@ const MonitoringContent = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.boardContainer}>
-        <div className={styles.periodDropdown}>
-          <PeriodDropdowns />
+        <div className={styles.tabContainer}>
+          <Nav tabs>
+            {Array.isArray(MONITORING_TABS) &&
+              MONITORING_TABS.map((graphItem, index) => {
+                return <TabsContainer key={index} info={graphItem} currentTab={currentTab} onClickTab={onClickTab} />
+              })}
+          </Nav>
+          <div className={styles.periodDropdown}>
+            <PeriodDropdowns />
+          </div>
         </div>
-        <Nav tabs>
-          {Array.isArray(MONITORING_TABS) &&
-            MONITORING_TABS.map((graphItem, index) => {
-              return <TabsContainer key={index} info={graphItem} currentTab={currentTab} onClickTab={onClickTab} />
-            })}
-        </Nav>
         <div className={styles.graphContainer}>{currentTab === EMonitoringTabs.BANDWIDTH && <BandwidthChart />}</div>
       </div>
     </div>
