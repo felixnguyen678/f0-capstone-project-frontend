@@ -1,9 +1,9 @@
 import { action, makeObservable, observable } from 'mobx'
-import { authenticateDO } from '../API/doAuthenticate'
+import { authenticateDO } from '../API/digitalOcean/authenticate'
 import { ECloudService } from '../constants/enums/cloudService'
 import { ELocalStorageKeys } from '../constants/enums/localStorage'
-import { IDOAccount } from './../types/doAccount'
-import { IDoAuthenticationRequest } from './../types/doAuthenticate'
+import { IDOAccount } from '../types/digitalOcean/account'
+import { IDoAuthenticationRequest } from './../types/digitalOcean/authenticate'
 import { RootStore } from './index'
 export default class DOAuthStore {
   rootStore: RootStore

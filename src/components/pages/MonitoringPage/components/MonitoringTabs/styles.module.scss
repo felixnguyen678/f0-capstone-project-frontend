@@ -1,0 +1,9 @@
+@import '../../../../../scss/variables.scss';
+.tabName {
+  color: $blue;
+}
+.activeTab {
+  color: $black;
+  background-color: $white !important;
+  border-color: $border-color $border-color $white !important;
+}

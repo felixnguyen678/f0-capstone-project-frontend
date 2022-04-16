@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios'
-import { IDOAccount } from '../types/doAccount'
-import api from './'
+import api from '..'
+import { IDOAccount } from '../../types/digitalOcean/account'
 
 const BASE_PATH = '/do-api'
 

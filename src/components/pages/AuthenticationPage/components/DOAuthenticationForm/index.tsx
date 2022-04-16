@@ -7,7 +7,7 @@ import { TEST_DO_TOKEN } from '../../../../../constants/config'
 import { ECloudService } from '../../../../../constants/enums/cloudService'
 import { useStores } from '../../../../../hooks/useStores'
 import routes from '../../../../../routes'
-import { IDoAuthenticationRequest } from '../../../../../types/doAuthenticate'
+import { IDoAuthenticationRequest } from '../../../../../types/digitalOcean/authenticate'
 import styles from './styles.module.scss'
 
 function DOAuthenticationForm() {
@@ -16,15 +16,16 @@ function DOAuthenticationForm() {
   const { doAuthStore, cloudServiceStore } = useStores()
   const navigate = useNavigate()
 
-  console.log(process.env.REACT_APP_BE_URL)
   async function loginDo(data: IDoAuthenticationRequest): Promise<void> {
     const cloudServiceName = ECloudService.DIGITAL_OCEAN
 
     try {
       setIsLoading(true)
       await doAuthStore.loginDO(data)
-      cloudServiceStore.setCurrentCloudService(cloudServiceName)
-      toast.success('Login cloud serive successfully.')
+
+      await cloudServiceStore.setCurrentCloudService(cloudServiceName)
+      await cloudServiceStore.fetchCurrentDroplet()
+      toast.success('Login cloud service successfully.')
       navigate(routes.home.value)
     } catch (error) {
       toast.error('Invalid token, please try again.')
