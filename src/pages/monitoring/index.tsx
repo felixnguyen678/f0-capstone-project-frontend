@@ -1,4 +1,4 @@
-import MonitoringContent from '../../components/pages/MonitoringPage/component/TabsContent'
+import MonitoringContent from '../../components/pages/MonitoringPage/components/TabsContent'
 import withAuthen from '../../hocs/withAuthen'
 
 const MonitoringPage = () => {
