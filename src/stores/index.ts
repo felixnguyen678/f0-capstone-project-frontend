@@ -2,6 +2,7 @@ import AuthStore from './authStore'
 import CloudServiceStore from './cloudServiceStore'
 import DOAuthStore from './doAuthStore'
 import BandwidthStore from './monitoring/bandwidthStore'
+import CPUStore from './monitoring/cpuStore'
 import MemoryStore from './monitoring/memoryStore'
 import TestStore from './testStore'
 
@@ -12,6 +13,7 @@ export class RootStore {
   cloudServiceStore: CloudServiceStore
   bandwidthStore: BandwidthStore
   memoryStore: MemoryStore
+  cpuStore: CPUStore
 
   constructor() {
     this.testStore = new TestStore(this)
@@ -20,6 +22,7 @@ export class RootStore {
     this.cloudServiceStore = new CloudServiceStore(this)
     this.bandwidthStore = new BandwidthStore(this)
     this.memoryStore = new MemoryStore(this)
+    this.cpuStore = new CPUStore(this)
   }
 }
 
