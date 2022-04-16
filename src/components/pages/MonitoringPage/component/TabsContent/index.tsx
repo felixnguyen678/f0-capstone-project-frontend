@@ -4,22 +4,23 @@ import { EMonitoringTabs } from '../../../../../constants/enums/monitoringTabs'
 import BandwidthChart from '../MonitoringCharts/BandwithCharts'
 import TabsContainer from '../MonitoringTabs'
 import PeriodDropdowns from '../SelectPeriod'
-import { MONITORING_TABS } from './constants'
 import styles from './styles.module.scss'
 
 const MonitoringContent = () => {
-  const [currentTab, setTabActive] = useState<EMonitoringTabs>(EMonitoringTabs.CPU)
+  const [currentTab, setTabActive] = useState<EMonitoringTabs>(EMonitoringTabs.BANDWIDTH)
+
   function onClickTab(tabName: EMonitoringTabs): void {
     setTabActive(tabName)
   }
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.boardContainer}>
         <div className={styles.tabContainer}>
           <Nav tabs>
-            {Array.isArray(MONITORING_TABS) &&
-              MONITORING_TABS.map((graphItem, index) => {
-                return <TabsContainer key={index} info={graphItem} currentTab={currentTab} onClickTab={onClickTab} />
+            {Array.isArray(Object.values(EMonitoringTabs)) &&
+              Object.values(EMonitoringTabs).map((graphItem, index) => {
+                return <TabsContainer key={index} tab={graphItem} currentTab={currentTab} onClickTab={onClickTab} />
               })}
           </Nav>
           <div className={styles.periodDropdown}>

@@ -3,14 +3,15 @@ import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap
 import styles from './styles.module.scss'
 
 function PeriodDropdowns() {
-  const [dropdownopen, setDropdownopen] = useState(false)
-  const handleDropdownToggle = () => {
-    setDropdownopen((prevState) => !prevState)
+  const [isOpenDropdown, setIsOpenDropdown] = useState(false)
+
+  function handleDropdownToggle(): void {
+    setIsOpenDropdown((previousState) => !previousState)
   }
 
   return (
     <div>
-      <Dropdown isOpen={dropdownopen} toggle={handleDropdownToggle}>
+      <Dropdown isOpen={isOpenDropdown} toggle={handleDropdownToggle}>
         <DropdownToggle color="success" caret>
           Select period
         </DropdownToggle>

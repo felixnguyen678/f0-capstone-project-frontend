@@ -1,28 +1,26 @@
 import cx from 'classnames'
 import { NavItem, NavLink } from 'reactstrap'
 import { EMonitoringTabs } from '../../../../../constants/enums/monitoringTabs'
-import { IMonitoringTabInfo } from '../TabsContent/types'
 import styles from './styles.module.scss'
 
 interface IMonitoringTabProps {
-  info: IMonitoringTabInfo
+  tab: EMonitoringTabs
   currentTab: EMonitoringTabs
   onClickTab: (tabName: EMonitoringTabs) => void
 }
 
 const TabsContainer = (props: IMonitoringTabProps) => {
-  const { info, currentTab, onClickTab } = props
+  const { tab, currentTab, onClickTab } = props
 
-  const { name } = info
   return (
     <NavItem>
       <NavLink
-        onClick={() => onClickTab(name)}
+        onClick={() => onClickTab(tab)}
         className={cx(styles.tabName, {
-          [styles.activeTab]: currentTab === name
+          [styles.activeTab]: currentTab === tab
         })}
       >
-        {name}
+        {tab}
       </NavLink>
     </NavItem>
   )
