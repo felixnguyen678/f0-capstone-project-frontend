@@ -15,8 +15,8 @@ export async function getMonitoringBandwidth(
   netWorkInterface: EBandwidthNetworkInterface,
   trafficDirection: EBandwidthTrafficDirection
 ): Promise<IMonitoringResponse> {
-  const stringStartDate = start.toDateString()
-  const stringEndDate = end.toDateString()
+  const stringStartDate = start.toISOString()
+  const stringEndDate = end.toISOString()
 
   const response: AxiosResponse = await api.get(
     `${BASE_PATH}/metrics/bandwidth?hostId=${hostId}&start=${stringStartDate}&end=${stringEndDate}&networkInterface=${netWorkInterface}&trafficDirection=${trafficDirection}`
@@ -26,8 +26,8 @@ export async function getMonitoringBandwidth(
 }
 
 export async function getMonitoringMemory(hostId: string, start: Date, end: Date): Promise<IMonitoringResponse> {
-  const stringStartDate = start.toDateString()
-  const stringEndDate = end.toDateString()
+  const stringStartDate = start.toISOString()
+  const stringEndDate = end.toISOString()
 
   const response: AxiosResponse = await api.get(
     `${BASE_PATH}/metrics/memory?hostId=${hostId}&start=${stringStartDate}&end=${stringEndDate}`
@@ -37,8 +37,8 @@ export async function getMonitoringMemory(hostId: string, start: Date, end: Date
 }
 
 export async function getMonitoringUsedCPU(hostId: string, start: Date, end: Date): Promise<IMonitoringResponse> {
-  const stringStartDate = start.toDateString()
-  const stringEndDate = end.toDateString()
+  const stringStartDate = start.toISOString()
+  const stringEndDate = end.toISOString()
 
   const response: AxiosResponse = await api.get(
     `${BASE_PATH}/metrics/cpu?hostId=${hostId}&start=${stringStartDate}&end=${stringEndDate}`
