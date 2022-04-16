@@ -3,8 +3,8 @@ import { round } from 'lodash'
 import { observer } from 'mobx-react'
 import { Line } from 'react-chartjs-2'
 import { useStores } from '../../../../../../hooks/useStores'
-import styles from './styles.module.scss'
 import { generateChartData } from './utils'
+import styles from './styles.module.scss'
 
 Chart.register(...registerables)
 
