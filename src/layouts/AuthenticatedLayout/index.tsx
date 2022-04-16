@@ -11,7 +11,7 @@ import styles from './styles.module.scss'
 const AuthenticatedLayout = ({ ...props }) => {
   const { authStore, doAuthStore, cloudServiceStore } = useStores()
   const { currentUser } = authStore
-  const { currentCloudService } = cloudServiceStore
+  const { currentCloudService, currentDroplet } = cloudServiceStore
 
   return (
     <>
@@ -22,9 +22,14 @@ const AuthenticatedLayout = ({ ...props }) => {
           </Link>
           <div className={styles.rightColumn}>
             <div className={styles.item}>
+              <h4 className={styles.itemTitle}>Droplet: {currentDroplet?.name ?? ''} </h4>
+            </div>
+
+            <div className={styles.item}>
               <i className={`ri-cloud-line ${styles.itemIcon}`}></i>
               <h4 className={styles.itemTitle}>{currentCloudService}</h4>
             </div>
+
             <div className={styles.item}>
               <i className={`ri-user-line ${styles.itemIcon}`}></i>
               <h4 className={styles.itemTitle}>{currentUser?.email}</h4>

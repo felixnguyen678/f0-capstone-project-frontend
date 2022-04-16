@@ -1,8 +1,7 @@
 import AuthStore from './authStore'
-import CloudServiceStore from './CloudServiceStore'
+import CloudServiceStore from './cloudServiceStore'
 import DOAuthStore from './doAuthStore'
 import TestStore from './testStore'
-
 export class RootStore {
   testStore: TestStore
   authStore: AuthStore

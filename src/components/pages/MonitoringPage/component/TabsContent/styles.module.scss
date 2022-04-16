@@ -2,10 +2,16 @@
 
 .wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  margin-top: 30px;
+
   height: 100%;
   width: 100%;
+
+  .header {
+    margin-bottom: 20px;
+  }
+
   .boardContainer {
     border: 2px solid $border-color;
     border-radius: 10px;
