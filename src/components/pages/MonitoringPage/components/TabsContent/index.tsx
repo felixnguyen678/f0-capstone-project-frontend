@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
 import { observer } from 'mobx-react'
+import { useEffect, useState } from 'react'
 import { Nav } from 'reactstrap'
 import { EMonitoringTabs } from '../../../../../constants/enums/monitoringTabs'
 import { useStores } from '../../../../../hooks/useStores'
 import { getDateRange } from '../../../../../utils'
 import BandwidthChart from '../MonitoringCharts/BandwidthChart'
+import CPUChart from '../MonitoringCharts/CPUChart'
 import MemoryChart from '../MonitoringCharts/MemoryChart'
 import TabsContainer from '../MonitoringTabs'
 import PeriodSelect from '../PeriodSelect'
@@ -12,7 +13,7 @@ import { TIME_VALUES } from '../PeriodSelect/constants'
 import styles from './styles.module.scss'
 
 const MonitoringContent = () => {
-  const { bandwidthStore, cloudServiceStore, memoryStore } = useStores()
+  const { bandwidthStore, cloudServiceStore, memoryStore, cpuStore } = useStores()
 
   const [currentTab, setTabActive] = useState<EMonitoringTabs>(EMonitoringTabs.BANDWIDTH)
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -33,7 +34,8 @@ const MonitoringContent = () => {
 
     await Promise.all([
       bandwidthStore.fetchMonitoringBandwidth(start, end),
-      memoryStore.fetchMonitoringMemory(start, end)
+      memoryStore.fetchMonitoringMemory(start, end),
+      cpuStore.fetchMonitoringUsedCPU(start, end)
     ])
 
     setIsLoading(false)
@@ -64,6 +66,8 @@ const MonitoringContent = () => {
           {currentTab === EMonitoringTabs.BANDWIDTH && <BandwidthChart />}
 
           {currentTab === EMonitoringTabs.MEMORY && <MemoryChart />}
+
+          {currentTab === EMonitoringTabs.CPU && <CPUChart />}
         </div>
       </div>
     </div>

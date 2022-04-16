@@ -35,3 +35,14 @@ export async function getMonitoringMemory(hostId: string, start: Date, end: Date
 
   return response?.data
 }
+
+export async function getMonitoringUsedCPU(hostId: string, start: Date, end: Date): Promise<IMonitoringResponse> {
+  const stringStartDate = start.toDateString()
+  const stringEndDate = end.toDateString()
+
+  const response: AxiosResponse = await api.get(
+    `${BASE_PATH}/metrics/cpu?hostId=${hostId}&start=${stringStartDate}&end=${stringEndDate}`
+  )
+
+  return response?.data
+}
