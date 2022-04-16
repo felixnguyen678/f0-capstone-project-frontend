@@ -1,22 +1,24 @@
-import { useEffect, useState } from 'react'
 import { observer } from 'mobx-react'
+import { useEffect, useState } from 'react'
 import { Nav } from 'reactstrap'
 import { EMonitoringTabs } from '../../../../../constants/enums/monitoringTabs'
 import { useStores } from '../../../../../hooks/useStores'
 import { getDateRange } from '../../../../../utils'
 import BandwidthChart from '../MonitoringCharts/BandwidthChart'
+import MemoryChart from '../MonitoringCharts/MemoryChart'
 import TabsContainer from '../MonitoringTabs'
 import PeriodSelect from '../PeriodSelect'
 import { TIME_VALUES } from '../PeriodSelect/constants'
 import styles from './styles.module.scss'
 
 const MonitoringContent = () => {
-  const { bandwidthStore, cloudServiceStore } = useStores()
+  const { bandwidthStore, cloudServiceStore, memoryStore } = useStores()
 
   const [currentTab, setTabActive] = useState<EMonitoringTabs>(EMonitoringTabs.BANDWIDTH)
   const [isLoading, setIsLoading] = useState<boolean>(false)
-
   const [currentPeriod, setCurrentPeriod] = useState<string>(TIME_VALUES['6h'])
+
+  const { start, end } = getDateRange(currentPeriod)
 
   function onClickTab(tabName: EMonitoringTabs): void {
     setTabActive(tabName)
@@ -26,18 +28,20 @@ const MonitoringContent = () => {
     setCurrentPeriod(newPeriod)
   }
 
-  async function fetchBandwidthData(): Promise<void> {
+  async function fetchMonitoringData(): Promise<void> {
     setIsLoading(true)
-    const { start, end } = getDateRange(currentPeriod)
 
-    await bandwidthStore.fetchMonitoringBandwidth(start, end)
+    await Promise.all([
+      bandwidthStore.fetchMonitoringBandwidth(start, end),
+      memoryStore.fetchMonitoringMemory(start, end)
+    ])
 
     setIsLoading(false)
   }
 
   useEffect(() => {
     if (cloudServiceStore?.currentDroplet) {
-      fetchBandwidthData()
+      fetchMonitoringData()
     }
   }, [currentPeriod, cloudServiceStore.currentDroplet])
 
@@ -56,7 +60,11 @@ const MonitoringContent = () => {
           </div>
         </div>
 
-        <div className={styles.graphContainer}>{currentTab === EMonitoringTabs.BANDWIDTH && <BandwidthChart />}</div>
+        <div className={styles.graphContainer}>
+          {currentTab === EMonitoringTabs.BANDWIDTH && <BandwidthChart />}
+
+          {currentTab === EMonitoringTabs.MEMORY && <MemoryChart />}
+        </div>
       </div>
     </div>
   )

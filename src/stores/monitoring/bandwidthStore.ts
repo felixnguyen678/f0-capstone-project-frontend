@@ -22,8 +22,7 @@ class MonitoringBandwidthStore {
       publicInboundData: observable,
       privateOutboundData: observable,
       privateInboundData: observable,
-      fetchMonitoringBandwidth: action,
-      fetchPublicOutboundBandwidth: action
+      fetchMonitoringBandwidth: action
     })
 
     this.rootStore = rootStore
@@ -38,7 +37,7 @@ class MonitoringBandwidthStore {
     ])
   }
 
-  public async fetchPublicOutboundBandwidth(start: Date, end: Date): Promise<void> {
+  private async fetchPublicOutboundBandwidth(start: Date, end: Date): Promise<void> {
     const { cloudServiceStore } = this.rootStore
 
     const dropletId = get(cloudServiceStore.currentDroplet, 'id')
