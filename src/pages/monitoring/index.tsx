@@ -1,9 +1,10 @@
+import MonitoringContent from '../../components/pages/MonitoringPage/component/TabsContent'
 import withAuthen from '../../hocs/withAuthen'
 
 const MonitoringPage = () => {
   return (
     <>
-      <h1 className="p-5"> Monitoring page</h1>
+      <MonitoringContent />
     </>
   )
 }
