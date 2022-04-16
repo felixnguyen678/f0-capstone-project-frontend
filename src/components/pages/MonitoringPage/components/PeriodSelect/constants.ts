@@ -10,10 +10,6 @@ export const TIME_VALUES = {
 
 export const PERIOD_OPTIONS: IOptionItem[] = [
   {
-    label: '1 hours',
-    value: TIME_VALUES['1h']
-  },
-  {
     label: '6 hours',
     value: TIME_VALUES['6h']
   },

@@ -15,8 +15,11 @@ export async function getMonitoringBandwidth(
   netWorkInterface: EBandwidthNetworkInterface,
   trafficDirection: EBandwidthTrafficDirection
 ): Promise<IMonitoringResponse> {
+  const stringStartDate = start.toDateString()
+  const stringEndDate = end.toDateString()
+
   const response: AxiosResponse = await api.get(
-    `${BASE_PATH}/metrics/bandwidth?hostId=${hostId}&start=${start}&end=${end}&networkInterface=${netWorkInterface}&trafficDirection=${trafficDirection}`
+    `${BASE_PATH}/metrics/bandwidth?hostId=${hostId}&start=${stringStartDate}&end=${stringEndDate}&networkInterface=${netWorkInterface}&trafficDirection=${trafficDirection}`
   )
 
   return response?.data

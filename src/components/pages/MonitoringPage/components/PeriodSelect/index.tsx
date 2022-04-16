@@ -5,16 +5,18 @@ import styles from './styles.module.scss'
 
 interface IPeriodSelectProps {
   currentPeriod: string
+  isLoading: boolean
   onChange: (value: string) => void
 }
 
 function PeriodSelect(props: IPeriodSelectProps) {
-  const { currentPeriod, onChange } = props
+  const { currentPeriod, isLoading, onChange } = props
   const currentOption = getOptionItem(currentPeriod, PERIOD_OPTIONS)
 
   return (
     <div className={styles.container}>
       <ReactSelect
+        isLoading={isLoading}
         options={PERIOD_OPTIONS}
         value={currentOption}
         onChange={(newOption) => {

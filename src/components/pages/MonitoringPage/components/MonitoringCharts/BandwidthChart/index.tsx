@@ -1,22 +1,39 @@
 import { Chart, registerables } from 'chart.js'
+import { observer } from 'mobx-react'
 import { Line } from 'react-chartjs-2'
-import { data } from './data'
+import { useStores } from '../../../../../../hooks/useStores'
 import styles from './styles.module.scss'
+import { generateChartData } from './utils'
 
 Chart.register(...registerables)
 
 const BandwidthChart = () => {
+  const { bandwidthStore } = useStores()
+
+  const chartData = generateChartData(bandwidthStore)
+
   return (
     <Line
-      data={data}
+      data={chartData}
       options={{
+        elements: {
+          line: {
+            fill: true
+          }
+        },
         responsive: true,
         scales: {
           y: {
             ticks: {
               callback: function (value) {
-                return value + ' kb/s'
+                return value + 'MB/s'
               }
+            }
+          },
+          x: {
+            ticks: {
+              autoSkip: true,
+              maxTicksLimit: 8
             }
           }
         }
@@ -26,4 +43,4 @@ const BandwidthChart = () => {
   )
 }
 
-export default BandwidthChart
+export default observer(BandwidthChart)

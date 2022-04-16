@@ -1,5 +1,5 @@
 import get from 'lodash/get'
-import { makeObservable, observable } from 'mobx'
+import { action, makeObservable, observable } from 'mobx'
 import { getMonitoringBandwidth } from '../../API/digitalOcean/monitoring'
 import {
   EBandwidthNetworkInterface,
@@ -21,7 +21,9 @@ class MonitoringBandwidthStore {
       publicOutboundData: observable,
       publicInboundData: observable,
       privateOutboundData: observable,
-      privateInboundData: observable
+      privateInboundData: observable,
+      fetchMonitoringBandwidth: action,
+      fetchPublicOutboundBandwidth: action
     })
 
     this.rootStore = rootStore
@@ -36,9 +38,10 @@ class MonitoringBandwidthStore {
     ])
   }
 
-  private async fetchPublicOutboundBandwidth(start: Date, end: Date): Promise<void> {
-    const { currentDroplet } = this.rootStore.cloudServiceStore
-    const dropletId = get(currentDroplet, 'id')
+  public async fetchPublicOutboundBandwidth(start: Date, end: Date): Promise<void> {
+    const { cloudServiceStore } = this.rootStore
+
+    const dropletId = get(cloudServiceStore.currentDroplet, 'id')
 
     if (!dropletId) {
       return

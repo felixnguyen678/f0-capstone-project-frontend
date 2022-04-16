@@ -35,7 +35,6 @@ export default class CloudServiceStore {
 
     // INFO: We will get default droplet by the first droplets in the list and when we scale up, we need to fix this
     const droplet = first(droplets)
-    console.log({ droplet })
     this.currentDroplet = droplet
   }
 }
