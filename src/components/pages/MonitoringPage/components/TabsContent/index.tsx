@@ -1,5 +1,5 @@
-import { observer } from 'mobx-react'
 import { useEffect, useState } from 'react'
+import { observer } from 'mobx-react'
 import { Nav } from 'reactstrap'
 import { EMonitoringTabs } from '../../../../../constants/enums/monitoringTabs'
 import { useStores } from '../../../../../hooks/useStores'
