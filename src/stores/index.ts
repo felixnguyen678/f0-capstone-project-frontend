@@ -1,5 +1,5 @@
 import AuthStore from './authStore'
-import CloudServiceStore from './cloudStore'
+import CloudServiceStore from './cloudServiceStore'
 import DOAuthStore from './doAuthStore'
 import BandwidthStore from './monitoring/bandwidthStore'
 import CPUStore from './monitoring/cpuStore'
