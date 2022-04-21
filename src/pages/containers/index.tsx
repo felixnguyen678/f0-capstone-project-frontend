@@ -1,9 +1,10 @@
+import ContainerContent from '../../components/pages/ContainerPage/component/ContainerContent'
 import withAuthen from '../../hocs/withAuthen'
 
 const ContainersPage = () => {
   return (
     <>
-      <h1 className="p-5"> Containers page</h1>
+      <ContainerContent />
     </>
   )
 }

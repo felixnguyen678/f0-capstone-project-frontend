@@ -1,0 +1,19 @@
+@import '../../../../../scss/variables.scss';
+
+.containerWrapper {
+  border: 2px solid $border-color;
+  border-radius: 10px;
+  padding: 15px;
+  width: 90%;
+  height: 70%;
+  overflow-y: scroll;
+  .cardContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .cardContainer:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+}
