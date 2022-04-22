@@ -27,7 +27,7 @@ function App(): JSX.Element {
       <Route path={routes.resourceAlerts.value} element={<ResourceAlertsPage />} />
       <Route path={routes.virtualPrivateServers.value} element={<VirtualPrivateServersPage />} />
       <Route path={routes.containers.value} element={<ContainersPage />} />
-      <Route path='/containers/:id' element={<ContainerDetailPage />} />
+      <Route path="/containers/:id" element={<ContainerDetailPage />} />
       <Route path={routes.users.value} element={<UsersPage />} />
       <Route path={routes.monitoring.value} element={<MonitoringPage />} />
       <Route path={routes.cloudServiceLogin.value} element={<CloudServiceLoginPage />} />

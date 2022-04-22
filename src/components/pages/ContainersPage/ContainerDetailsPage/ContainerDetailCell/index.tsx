@@ -8,12 +8,12 @@ interface IContainerDetailCellProps {
 }
 
 const ContainerDetailCell = (props: IContainerDetailCellProps) => {
-  const {title, value} = props
+  const { title, value } = props
   return (
     <Col>
       <div className={styles.containerDetailCell}>
-          <h1>{value}</h1>
-          <h5>{title.toUpperCase()}</h5>
+        <h1>{value}</h1>
+        <h5>{title.toUpperCase()}</h5>
       </div>
     </Col>
   )

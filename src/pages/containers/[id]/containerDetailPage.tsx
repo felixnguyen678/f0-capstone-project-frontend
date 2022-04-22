@@ -21,12 +21,11 @@ const MOCKUP_CONTAINER: IContainer = {
   }
 }
 
-
 const ContainerDetailPage = () => {
   return (
     <>
       <ButtonsGroup />
-      <ContainerDetailCard detail={MOCKUP_CONTAINER.stats}/>
+      <ContainerDetailCard detail={MOCKUP_CONTAINER.stats} />
     </>
   )
 }
