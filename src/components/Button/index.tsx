@@ -16,11 +16,7 @@ export const CoreButton = ({ loading, ...otherProps }: Props) => {
       disabled={loading || otherProps.disabled}
     >
       {children}
-      {loading && (
-        <span className="pl-2">
-          <Spinner className={styles.spinner} size="sm" color="light" />
-        </span>
-      )}
+      {loading && <Spinner className={styles.spinner} size="sm" />}
     </Button>
   )
 }
