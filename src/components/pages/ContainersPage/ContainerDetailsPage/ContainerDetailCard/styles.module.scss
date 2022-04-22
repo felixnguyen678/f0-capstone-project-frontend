@@ -1,0 +1,40 @@
+@import '../../../../../scss/variables.scss';
+
+.container {
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-top: 30px;
+
+  .buttonsContainer {
+    display: flex;
+  }
+
+  .cardBody {
+    position: relative;
+
+    .verticalLine {
+      position: absolute;
+      border: 1px solid $light-gray;
+      height: 80%;
+      width: 0;
+      margin: auto;
+      left:0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    .horizontalLine {
+      position: absolute;
+      border: 1px solid $light-gray;
+      height: 0;
+      width: 90%;
+      margin: auto;
+      left:0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+
+}
