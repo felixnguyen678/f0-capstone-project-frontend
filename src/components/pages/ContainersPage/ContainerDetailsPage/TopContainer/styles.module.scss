@@ -1,0 +1,38 @@
+@import '../../../../../scss/variables.scss';
+
+.topContainer {
+  margin-top: 80px;
+  margin-left: 100px;
+  margin-right: 100px;
+  display: flex;
+  justify-content: space-between;
+
+  .leftSide {
+
+    .containerNamesAndStatus {
+      display: flex;
+
+      .containerNames {
+        margin-right: 5px;
+      }
+
+      .containerStatus {
+        margin-top: 10px;
+      }
+
+      .upStatus {
+        background: $green;
+        color: $white;
+      }
+      .exitedStatus {
+        background: $yellow;
+        color: $white;
+      }
+    }
+
+    .containerImage {
+      color: $gray
+    }
+  }
+
+}

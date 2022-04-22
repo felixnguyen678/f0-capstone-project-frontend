@@ -1,5 +1,5 @@
-import ButtonsGroup from '../../../components/pages/ContainersPage/ContainerDetailsPage/ButtonsGroup'
 import ContainerDetailCard from '../../../components/pages/ContainersPage/ContainerDetailsPage/ContainerDetailCard'
+import TopContainer from '../../../components/pages/ContainersPage/ContainerDetailsPage/TopContainer'
 import withAuthen from '../../../hocs/withAuthen'
 import { IContainer } from '../../../types/digitalOcean/container'
 
@@ -22,10 +22,11 @@ const MOCKUP_CONTAINER: IContainer = {
 }
 
 const ContainerDetailPage = () => {
+  const {names, image, status, stats} = MOCKUP_CONTAINER
   return (
     <>
-      <ButtonsGroup />
-      <ContainerDetailCard detail={MOCKUP_CONTAINER.stats} />
+      <TopContainer {...MOCKUP_CONTAINER}/>
+      <ContainerDetailCard detail={stats} />
     </>
   )
 }

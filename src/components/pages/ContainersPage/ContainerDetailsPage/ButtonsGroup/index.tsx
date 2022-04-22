@@ -2,7 +2,7 @@ import { useState } from 'react'
 import CoreButton from '../../../../Button'
 import styles from './styles.module.scss'
 
-const ButtonGroups = () => {
+const ButtonsGroup = () => {
   const [isStartLoading, setIsStartLoading] = useState<boolean>(false)
 
   function callAPI(): void {
@@ -29,4 +29,4 @@ const ButtonGroups = () => {
   )
 }
 
-export default ButtonGroups
+export default ButtonsGroup
