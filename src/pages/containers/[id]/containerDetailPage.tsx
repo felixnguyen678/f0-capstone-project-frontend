@@ -7,25 +7,6 @@ import TopContainer from '../../../components/pages/ContainerDetailsPage/compone
 import styles from '../../../components/pages/ContainerDetailsPage/styles.module.scss'
 import withAuthen from '../../../hocs/withAuthen'
 import { useStores } from '../../../hooks/useStores'
-import { IContainer } from '../../../types/digitalOcean/container'
-
-const MOCKUP_CONTAINER: IContainer = {
-  id: 'abc',
-  image: 'f0/backend',
-  names: 'backend',
-  ports: '3000/3000',
-  createdAt: new Date(),
-  status: 'Up 2 days',
-  stats: {
-    cpuPercent: '0.00%',
-    memoryInfo: {
-      usage: '678.9MiB / 2GB',
-      usagePercent: '31%'
-    },
-    netIO: '299kB /9.28MB',
-    blockIO: '85Mb/ 2B'
-  }
-}
 
 const ContainerDetailPage = () => {
   const { id } = useParams()
