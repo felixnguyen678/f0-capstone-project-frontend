@@ -1,42 +1,56 @@
 import dayjs from 'dayjs'
+import { useObserver } from 'mobx-react'
 import { Table } from 'reactstrap'
-import ContainerState from '../containerState/'
-import { containerData } from './containerData'
+import { useStores } from '../../../../../hooks/useStores'
+import LoadingSpinner from '../../../../LoadingSpinner'
 import styles from './styles.module.scss'
 
-const ContainerList = () => {
-  return (
-    <div className={styles.containerWrapper}>
-      <Table responsive hover>
-        <thead>
-          <tr>
-            <th>Container Name</th>
-            <th>Image Name</th>
-            <th>Status</th>
-            <th>Port</th>
-            <th>Created At</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Array.isArray(containerData) &&
-            containerData.map((containerInfo, index) => {
-              const { containerName, imageName, status, port } = containerInfo
-              return (
-                <tr>
-                  <td>{containerName}</td>
-                  <td>{imageName}</td>
-                  <td>
-                    <ContainerState status={status} />
-                  </td>
-                  <td>{port}</td>
-                  <td>{dayjs().format('DD.MM.YYYY')}</td>
-                </tr>
-              )
-            })}
-        </tbody>
-      </Table>
-    </div>
-  )
+interface IContainerListProps {
+  isLoading: boolean
+}
+
+const ContainerList = (props: IContainerListProps) => {
+  const DATE_FORMAT = 'DD.MM.YYYY'
+  const { isLoading } = props
+  const { containerStore } = useStores()
+
+  return useObserver(() => {
+    const { containers } = containerStore
+
+    return (
+      <div className={styles.containerWrapper}>
+        <Table responsive hover>
+          <thead>
+            <tr>
+              <th>Container Name</th>
+              <th>Image Name</th>
+              <th>Status</th>
+              <th>Port</th>
+              <th>Created At</th>
+            </tr>
+          </thead>
+          <tbody>
+            {isLoading && <LoadingSpinner size="sm" />}
+
+            {Array.isArray(containers) &&
+              containers.map((container) => {
+                const { id, image, names, ports, createdAt, status } = container
+
+                return (
+                  <tr key={id}>
+                    <td>{names}</td>
+                    <td>{image}</td>
+                    <td>{status}</td>
+                    <td>{ports}</td>
+                    <td>{dayjs(createdAt).format(DATE_FORMAT)}</td>
+                  </tr>
+                )
+              })}
+          </tbody>
+        </Table>
+      </div>
+    )
+  })
 }
 
 export default ContainerList
