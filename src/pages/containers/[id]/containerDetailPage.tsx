@@ -1,5 +1,5 @@
-import { observer } from 'mobx-react'
 import { useEffect, useState } from 'react'
+import { observer } from 'mobx-react'
 import { useParams } from 'react-router-dom'
 import LoadingSpinner from '../../../components/LoadingSpinner'
 import ContainerDetailCard from '../../../components/pages/ContainerDetailsPage/components/ContainerDetailCard'
