@@ -15,3 +15,11 @@ export async function getContainers(hostId: number, keyword?: string): Promise<I
 
   return response?.data
 }
+
+export async function getContainer(id: string, hostId: number): Promise<IContainer> {
+  let url = `${BASE_PATH}/${id}?hostId=${hostId}`
+
+  const response: AxiosResponse = await api.get(url)
+
+  return response?.data
+}

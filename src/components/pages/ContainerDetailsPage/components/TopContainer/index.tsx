@@ -1,23 +1,25 @@
 import cx from 'classnames'
-import CoreBadge from '../../../../Badge'
+import { EContainerStatus } from '../../../../../constants/enums/container'
+import { IContainer } from '../../../../../types/digitalOcean/container'
+import CustomBadge from '../../../../Badge'
 import ButtonsGroup from '../ButtonsGroup'
 import styles from './styles.module.scss'
 
 export interface ITopContainerProps {
-  names: string
-  image: string
-  status: string
+  container: IContainer
 }
 
 const TopContainer = (props: ITopContainerProps) => {
-  const { names, image, status } = props
+  const { names, image, status } = props.container
 
   function getStatusClassName(): string {
     const lowerCaseOfStatus = status.toLowerCase()
-    if (lowerCaseOfStatus.includes('up')) {
+
+    if (lowerCaseOfStatus.includes(EContainerStatus.UP)) {
       return styles.upStatus
     }
-    if (lowerCaseOfStatus.includes('exited')) {
+
+    if (lowerCaseOfStatus.includes(EContainerStatus.EXITED)) {
       return styles.exitedStatus
     }
 
@@ -32,7 +34,7 @@ const TopContainer = (props: ITopContainerProps) => {
         <div className={styles.infoWrapper}>
           <h5 className={styles.imageName}>{image}</h5>
 
-          <CoreBadge className={cx(styles.status, getStatusClassName())}>{status}</CoreBadge>
+          <CustomBadge className={cx(styles.status, getStatusClassName())}>{status}</CustomBadge>
         </div>
       </div>
       <ButtonsGroup />

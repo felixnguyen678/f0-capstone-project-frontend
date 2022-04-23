@@ -2,7 +2,7 @@ import classnames from 'classnames'
 import { BadgeProps } from 'reactstrap'
 import styles from './styles.module.scss'
 
-export const CoreBadge = ({ ...otherProps }: BadgeProps) => {
+export const CustomBadge = ({ ...otherProps }: BadgeProps) => {
   const { children } = otherProps
   return (
     <span {...otherProps} className={classnames(otherProps.className, styles.coreBadge)}>
@@ -11,4 +11,4 @@ export const CoreBadge = ({ ...otherProps }: BadgeProps) => {
   )
 }
 
-export default CoreBadge
+export default CustomBadge

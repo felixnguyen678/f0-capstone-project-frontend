@@ -1,4 +1,4 @@
-import ContainerContent from '../../components/pages/ContainerPage/component/ContainerContent'
+import ContainerContent from '../../components/pages/ContainerPage/components/ContainerContent'
 import withAuthen from '../../hocs/withAuthen'
 
 const ContainersPage = () => {
