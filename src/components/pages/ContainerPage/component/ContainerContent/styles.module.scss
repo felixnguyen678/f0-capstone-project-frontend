@@ -1,10 +1,17 @@
 @import '../../../../../scss/variables.scss';
 
 .wrapper {
+  padding: 48px;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   height: 100%;
   width: 100%;
+
+  h2 {
+    align-self: flex-start;
+    margin-bottom: 20px;
+  }
 }

@@ -1,16 +1,14 @@
 @import '../../../../../scss/variables.scss';
 
 .searchWrapper {
+  margin-bottom: 30px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 15%;
-  width: 90%;
+  width: 100%;
+
   .input {
     border: 2px solid $border-color;
-    width: 92%;
-  }
-  .searchButton {
-    background-color: $blue;
   }
 }
