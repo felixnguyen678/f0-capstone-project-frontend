@@ -1,7 +1,9 @@
 import dayjs from 'dayjs'
 import { useObserver } from 'mobx-react'
+import { useNavigate } from 'react-router-dom'
 import { Table } from 'reactstrap'
 import { useStores } from '../../../../../hooks/useStores'
+import routes from '../../../../../routes'
 import LoadingSpinner from '../../../../LoadingSpinner'
 import styles from './styles.module.scss'
 
@@ -13,6 +15,7 @@ const ContainerList = (props: IContainerListProps) => {
   const DATE_FORMAT = 'DD.MM.YYYY'
   const { isLoading } = props
   const { containerStore } = useStores()
+  const navigate = useNavigate()
 
   return useObserver(() => {
     const { containers } = containerStore
@@ -32,12 +35,18 @@ const ContainerList = (props: IContainerListProps) => {
           <tbody>
             {isLoading && <LoadingSpinner size="sm" />}
 
-            {Array.isArray(containers) &&
+            {!isLoading &&
+              Array.isArray(containers) &&
               containers.map((container) => {
                 const { id, image, names, ports, createdAt, status } = container
 
                 return (
-                  <tr key={id}>
+                  <tr
+                    key={id}
+                    onClick={() => {
+                      navigate(routes.containers.details.value(id))
+                    }}
+                  >
                     <td>{names}</td>
                     <td>{image}</td>
                     <td>{status}</td>

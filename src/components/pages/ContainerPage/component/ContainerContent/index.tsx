@@ -10,11 +10,9 @@ const ContainerContent = () => {
 
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
-  async function fetchContainers(keyword?: string) {
+  async function fetchContainers(keyword?: string): Promise<void> {
     setIsLoading(true)
-
     await containerStore.fetchContainers(keyword)
-
     setIsLoading(false)
   }
 
@@ -28,7 +26,7 @@ const ContainerContent = () => {
     <div className={styles.wrapper}>
       <h2>Containers</h2>
 
-      <SearchBar />
+      <SearchBar fetchContainers={fetchContainers} isLoading={isLoading} />
       <ContainerList isLoading={isLoading} />
     </div>
   )
