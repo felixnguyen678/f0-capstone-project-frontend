@@ -19,7 +19,10 @@ const routes = {
   },
   containers: {
     value: '/containers',
-    detail: (id: string) => `/containers/${id}`
+    details: {
+      path: '/containers/:id',
+      value: (id: string) => `/containers/${id}`
+    }
   },
   cloudServiceLogin: {
     value: '/cloud-service-login'

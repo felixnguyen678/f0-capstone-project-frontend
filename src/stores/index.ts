@@ -1,5 +1,6 @@
 import AuthStore from './authStore'
 import CloudServiceStore from './cloudServiceStore'
+import ContainerStore from './digital-ocean/containerStore'
 import DOAuthStore from './doAuthStore'
 import BandwidthStore from './monitoring/bandwidthStore'
 import CPUStore from './monitoring/cpuStore'
@@ -14,6 +15,7 @@ export class RootStore {
   bandwidthStore: BandwidthStore
   memoryStore: MemoryStore
   cpuStore: CPUStore
+  containerStore: ContainerStore
 
   constructor() {
     this.testStore = new TestStore(this)
@@ -23,6 +25,7 @@ export class RootStore {
     this.bandwidthStore = new BandwidthStore(this)
     this.memoryStore = new MemoryStore(this)
     this.cpuStore = new CPUStore(this)
+    this.containerStore = new ContainerStore(this)
   }
 }
 
