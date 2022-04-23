@@ -1,0 +1,20 @@
+@import '../../../../../scss/variables.scss';
+
+.buttonsGroup {
+  display: flex;
+  gap: 8px;
+
+  .startButton {
+    background-color: $green;
+  }
+
+  .stopButton {
+    background-color: $yellow;
+    margin-left: 5px;
+  }
+
+  .removeButton {
+    background-color: $red;
+    margin-left: 5px;
+  }
+}
