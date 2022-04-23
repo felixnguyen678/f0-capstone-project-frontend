@@ -48,11 +48,17 @@ const ContainerDetailPage = () => {
     }
   }, [cloudServiceStore.currentDroplet])
 
+  useEffect(() => {
+    return () => {
+      containerStore.clear()
+    }
+  }, [])
+
   return (
     <>
       <div className={styles.container}>
         {isLoading && <LoadingSpinner />}
-        {container && (
+        {container && !isLoading && (
           <>
             <TopContainer container={container!} />
             <ContainerDetailCard stats={container!.stats} />

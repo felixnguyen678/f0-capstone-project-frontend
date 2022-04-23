@@ -39,4 +39,9 @@ export default class ContainerStore {
 
     this.container = container
   }
+
+  public clear(): void {
+    this.containers = []
+    this.container = undefined
+  }
 }
