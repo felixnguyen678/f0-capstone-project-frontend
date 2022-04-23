@@ -1,12 +1,12 @@
 import classnames from 'classnames'
-import { ButtonProps, Button, Spinner } from 'reactstrap'
+import { Button, ButtonProps, Spinner } from 'reactstrap'
 import styles from './styles.module.scss'
 
 interface Props extends ButtonProps {
   loading?: boolean
 }
 
-export const CoreButton = ({ loading, ...otherProps }: Props) => {
+export const CustomButton = ({ loading, ...otherProps }: Props) => {
   const { children } = otherProps
 
   return (
@@ -21,4 +21,4 @@ export const CoreButton = ({ loading, ...otherProps }: Props) => {
   )
 }
 
-export default CoreButton
+export default CustomButton

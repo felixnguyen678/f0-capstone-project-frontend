@@ -1,5 +1,6 @@
 import ContainerDetailCard from '../../../components/pages/ContainersPage/ContainerDetailsPage/ContainerDetailCard'
 import TopContainer from '../../../components/pages/ContainersPage/ContainerDetailsPage/TopContainer'
+import styles from '../../../components/pages/ContainersPage/styles.module.scss'
 import withAuthen from '../../../hocs/withAuthen'
 import { IContainer } from '../../../types/digitalOcean/container'
 
@@ -22,11 +23,13 @@ const MOCKUP_CONTAINER: IContainer = {
 }
 
 const ContainerDetailPage = () => {
-  const {names, image, status, stats} = MOCKUP_CONTAINER
+  const { names, image, status, stats } = MOCKUP_CONTAINER
   return (
     <>
-      <TopContainer {...MOCKUP_CONTAINER}/>
-      <ContainerDetailCard detail={stats} />
+      <div className={styles.container}>
+        <TopContainer {...MOCKUP_CONTAINER} />
+        <ContainerDetailCard detail={stats} />
+      </div>
     </>
   )
 }

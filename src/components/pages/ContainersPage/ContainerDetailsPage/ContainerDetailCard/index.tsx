@@ -12,6 +12,7 @@ export interface IContainerDetailCardProps {
 const ContainerDetailCard = ({ detail }: IContainerDetailCardProps) => {
   const { cpuPercent, memoryInfo, netIO, blockIO } = detail
   const memoryUsage = get(memoryInfo, 'usage')
+
   return (
     <div className={styles.container}>
       <Card>

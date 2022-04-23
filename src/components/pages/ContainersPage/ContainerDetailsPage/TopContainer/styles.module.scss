@@ -1,38 +1,33 @@
 @import '../../../../../scss/variables.scss';
 
 .topContainer {
-  margin-top: 80px;
-  margin-left: 100px;
-  margin-right: 100px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   .leftSide {
-
-    .containerNamesAndStatus {
+    .infoWrapper {
       display: flex;
+      align-items: center;
 
-      .containerNames {
-        margin-right: 5px;
+      h5 {
+        margin-bottom: 0px;
+        margin-right: 20px;
       }
 
-      .containerStatus {
-        margin-top: 10px;
+      .imageName {
+        color: $gray;
       }
 
       .upStatus {
         background: $green;
         color: $white;
       }
+
       .exitedStatus {
         background: $yellow;
         color: $white;
       }
     }
-
-    .containerImage {
-      color: $gray
-    }
   }
-
 }

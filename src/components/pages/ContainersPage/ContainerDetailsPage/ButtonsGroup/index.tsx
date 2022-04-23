@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import CoreButton from '../../../../Button'
+import CustomButton from '../../../../Button'
 import styles from './styles.module.scss'
 
 const ButtonsGroup = () => {
@@ -14,7 +14,7 @@ const ButtonsGroup = () => {
 
   return (
     <div className={styles.buttonsGroup}>
-      <CoreButton
+      <CustomButton
         className={styles.startButton}
         onClick={() => {
           callAPI()
@@ -22,9 +22,9 @@ const ButtonsGroup = () => {
         loading={isStartLoading}
       >
         Start/Restart
-      </CoreButton>
-      <CoreButton className={styles.stopButton}>Stop</CoreButton>
-      <CoreButton className={styles.removeButton}>Remove</CoreButton>
+      </CustomButton>
+      <CustomButton className={styles.stopButton}>Stop</CustomButton>
+      <CustomButton className={styles.removeButton}>Remove</CustomButton>
     </div>
   )
 }
