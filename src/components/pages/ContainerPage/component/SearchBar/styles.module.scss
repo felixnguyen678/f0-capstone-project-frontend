@@ -1,0 +1,14 @@
+@import '../../../../../scss/variables.scss';
+
+.searchWrapper {
+  margin-bottom: 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  .input {
+    border: 2px solid $border-color;
+  }
+}
