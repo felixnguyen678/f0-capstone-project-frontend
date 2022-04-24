@@ -6,6 +6,7 @@ import 'remixicon/fonts/remixicon.css'
 import BillingPage from './pages/billing'
 import CloudServiceLoginPage from './pages/cloud-service-login'
 import ContainersPage from './pages/containers'
+import ContainerDetailPage from './pages/containers/[id]/containerDetailPage'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 import MonitoringPage from './pages/monitoring'
@@ -20,14 +21,25 @@ function App(): JSX.Element {
   return (
     <Routes>
       <Route path={routes.home.value} element={<HomePage />} />
+
       <Route path={routes.myProfile.value} element={<ProfilePage />} />
+
       <Route path={routes.login.value} element={<LoginPage />} />
+
       <Route path={routes.billing.value} element={<BillingPage />} />
+
       <Route path={routes.resourceAlerts.value} element={<ResourceAlertsPage />} />
+
       <Route path={routes.virtualPrivateServers.value} element={<VirtualPrivateServersPage />} />
+
       <Route path={routes.containers.value} element={<ContainersPage />} />
+
+      <Route path={routes.containers.details.path} element={<ContainerDetailPage />} />
+
       <Route path={routes.users.value} element={<UsersPage />} />
+
       <Route path={routes.monitoring.value} element={<MonitoringPage />} />
+
       <Route path={routes.cloudServiceLogin.value} element={<CloudServiceLoginPage />} />
     </Routes>
   )

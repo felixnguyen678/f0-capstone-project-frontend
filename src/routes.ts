@@ -18,7 +18,11 @@ const routes = {
     value: '/virtual-private-servers'
   },
   containers: {
-    value: '/containers'
+    value: '/containers',
+    details: {
+      path: '/containers/:id',
+      value: (id: string) => `/containers/${id}`
+    }
   },
   cloudServiceLogin: {
     value: '/cloud-service-login'

@@ -1,0 +1,33 @@
+@import '../../../../../scss/variables.scss';
+
+.topContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .leftSide {
+    .infoWrapper {
+      display: flex;
+      align-items: center;
+
+      h5 {
+        margin-bottom: 0px;
+        margin-right: 20px;
+      }
+
+      .imageName {
+        color: $gray;
+      }
+
+      .upStatus {
+        background: $green;
+        color: $white;
+      }
+
+      .exitedStatus {
+        background: $yellow;
+        color: $white;
+      }
+    }
+  }
+}

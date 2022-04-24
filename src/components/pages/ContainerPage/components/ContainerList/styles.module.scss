@@ -1,0 +1,13 @@
+@import '../../../../../scss/variables.scss';
+
+.containerWrapper {
+  padding: 20px;
+  width: 100%;
+  border: 2px solid $border-color;
+  border-radius: 10px;
+  overflow-y: auto;
+
+  tbody tr:hover {
+    cursor: pointer;
+  }
+}
