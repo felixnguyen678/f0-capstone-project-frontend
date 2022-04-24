@@ -6,11 +6,11 @@ import ContainerDetailCell from '../ContainerDetailCell'
 import styles from './styles.module.scss'
 
 export interface IContainerDetailCardProps {
-  detail: IContainerStats
+  stats: IContainerStats
 }
 
-const ContainerDetailCard = ({ detail }: IContainerDetailCardProps) => {
-  const { cpuPercent, memoryInfo, netIO, blockIO } = detail
+const ContainerDetailCard = ({ stats }: IContainerDetailCardProps) => {
+  const { cpuPercent, memoryInfo, netIO, blockIO } = stats
   const memoryUsage = get(memoryInfo, 'usage')
 
   return (

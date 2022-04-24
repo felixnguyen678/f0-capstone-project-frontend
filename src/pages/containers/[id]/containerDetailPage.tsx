@@ -1,37 +1,53 @@
-import ContainerDetailCard from '../../../components/pages/ContainersPage/ContainerDetailsPage/ContainerDetailCard'
-import TopContainer from '../../../components/pages/ContainersPage/ContainerDetailsPage/TopContainer'
-import styles from '../../../components/pages/ContainersPage/styles.module.scss'
+import { useEffect, useState } from 'react'
+import { observer } from 'mobx-react'
+import { useParams } from 'react-router-dom'
+import LoadingSpinner from '../../../components/LoadingSpinner'
+import ContainerDetailCard from '../../../components/pages/ContainerDetailsPage/components/ContainerDetailCard'
+import TopContainer from '../../../components/pages/ContainerDetailsPage/components/TopContainer'
+import styles from '../../../components/pages/ContainerDetailsPage/styles.module.scss'
 import withAuthen from '../../../hocs/withAuthen'
-import { IContainer } from '../../../types/digitalOcean/container'
-
-const MOCKUP_CONTAINER: IContainer = {
-  id: 'abc',
-  image: 'f0/backend',
-  names: 'backend',
-  ports: '3000/3000',
-  createdAt: new Date(),
-  status: 'Up 2 days',
-  stats: {
-    cpuPercent: '0.00%',
-    memoryInfo: {
-      usage: '678.9MiB / 2GB',
-      usagePercent: '31%'
-    },
-    netIO: '299kB /9.28MB',
-    blockIO: '85Mb/ 2B'
-  }
-}
+import { useStores } from '../../../hooks/useStores'
 
 const ContainerDetailPage = () => {
-  const { names, image, status, stats } = MOCKUP_CONTAINER
+  const { id } = useParams()
+  const { containerStore, cloudServiceStore } = useStores()
+  const { container } = containerStore
+
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+
+  async function fetchContainer(): Promise<void> {
+    setIsLoading(true)
+    if (id) {
+      await containerStore.fetchContainer(id)
+    }
+    setIsLoading(false)
+  }
+
+  useEffect(() => {
+    if (cloudServiceStore.currentDroplet) {
+      fetchContainer()
+    }
+  }, [cloudServiceStore.currentDroplet])
+
+  useEffect(() => {
+    return () => {
+      containerStore.clear()
+    }
+  }, [])
+
   return (
     <>
       <div className={styles.container}>
-        <TopContainer {...MOCKUP_CONTAINER} />
-        <ContainerDetailCard detail={stats} />
+        {isLoading && <LoadingSpinner />}
+        {container && !isLoading && (
+          <>
+            <TopContainer container={container!} />
+            <ContainerDetailCard stats={container!.stats} />
+          </>
+        )}
       </div>
     </>
   )
 }
 
-export default withAuthen(ContainerDetailPage)
+export default withAuthen(observer(ContainerDetailPage))
